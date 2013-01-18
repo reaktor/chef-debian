@@ -18,7 +18,7 @@ Attributes
 ----------
 
   * `node['debian']['mirror']` - Default Debian mirror URI. Defaults to
-    "http://ftp.debian.org/debian".
+    `"http://ftp.debian.org/debian"`.
   * `node['debian']['components']` - Default repository components. Defaults to
     `["main", "contrib", "non-free"]`.
   * `node['debian']['deb_src']` - If true, enables apt source lines by default.
