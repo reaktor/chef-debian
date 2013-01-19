@@ -4,8 +4,8 @@ Debian Cookbook
 Description
 -----------
 
-Configures (official) Debian Apt repositories. Includes also a LWRP to add and
-pin a Debian repository.
+Configures (official) Debian Apt repositories. Includes also a LWRP which
+can be used to add and pin a Debian repository.
 
 Requirements
 ------------
@@ -17,22 +17,23 @@ Requires "apt" cookbook.
 Attributes
 ----------
 
-  * `node['debian']['mirror']` - Default Debian mirror URI. Defaults to
-    `"http://ftp.debian.org/debian"`.
-  * `node['debian']['components']` - Default repository components. Defaults to
-    `["main", "contrib", "non-free"]`.
-  * `node['debian']['deb_src']` - If true, enables apt source lines by default.
-    Defaults to false.
+Attribute                      | Description                    | Default
+-------------------------------|--------------------------------|----------
+`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://ftp.debian.org/debian"`
+`node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
+`node['debian']['deb_src']`    | If true, enables apt source lines by default | false
 
 The following attributes specify if the corresponding recipe/repository is
 included by the default recipe:
 
-  * `node['debian']['backports']` - Default: false
-  * `node['debian']['security']` - Default: true
-  * `node['debian']['stable_proposed_updates']` - Default: false
-  * `node['debian']['stable_updates']` - Default: true
-  * `node['debian']['testing']` - Default: false
-  * `node['debian']['unstable']` - Default: false
+Attribute                                   | Default
+--------------------------------------------|--------
+`node['debian']['backports']`               | false
+`node['debian']['security']`                | true
+`node['debian']['stable_proposed_updates']` | false
+`node['debian']['stable_updates']`          | true
+`node['debian']['testing']`                 | false
+`node['debian']['unstable']`                | false
 
 Recipes
 -------
