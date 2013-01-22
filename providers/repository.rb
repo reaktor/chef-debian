@@ -31,12 +31,12 @@ end
 
 action :add do
   repository_resource :add
-  preferences_resourse(new_resource.pin_priority ? :create : :delete)
+  preferences_resourse(new_resource.pin_priority ? :add : :remove)
 end
 
 action :remove do
   repository_resource  :remove
-  preferences_resourse :delete
+  preferences_resourse :remove
 end
 
 def repository_resource(exec_action)
@@ -59,17 +59,11 @@ def repository_resource(exec_action)
 end
 
 def preferences_resourse(exec_action)
-  r = template "/etc/apt/preferences.d/#{new_resource.repo_name}" do
-    source   "apt_preferences.erb"
-    cookbook "debian"
-    owner    "root"
-    group    "root"
-    mode     00644
-    variables(
-             :dist         => new_resource.distribution,
-             :pin_priority => new_resource.pin_priority
-    )
-    action   :nothing
+  r = apt_preference new_resource.repo_name do
+    package_name "*"
+    pin          "a=#{new_resource.distribution}, o=Debian"
+    pin_priority new_resource.pin_priority.to_s
+    action       :nothing
   end
   r.run_action exec_action
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?

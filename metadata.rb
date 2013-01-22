@@ -7,4 +7,4 @@ long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '1.1.1'
 
 supports         'debian'
-depends          'apt'
+depends          'apt', '>= 1.6.0'
