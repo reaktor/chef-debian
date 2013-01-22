@@ -1,6 +1,18 @@
 Debian Cookbook [![Build Status](https://travis-ci.org/reaktor/chef-debian.png?branch=master)](https://travis-ci.org/reaktor/chef-debian)
 ===============
 
+Table of Contents
+-----------------
+
+* [Description](#description)
+* [Requirements](#requirements)
+* [Attributes](#attributes)
+* [Recipes](#recipes)
+* [Resources/Providers](#resourcesproviders)
+* [Usage](#usage)
+* [Installation](#installation)
+* [License and Author](#license-and-author)
+
 Description
 -----------
 
