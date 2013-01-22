@@ -1,4 +1,4 @@
-Debian Cookbook
+Debian Cookbook [![Build Status](https://travis-ci.org/reaktor/chef-debian.png?branch=master)](https://travis-ci.org/reaktor/chef-debian)
 ===============
 
 Description
