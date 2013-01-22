@@ -1,9 +1,10 @@
 source :rubygems
 
 gem 'rake'
+gem 'berkshelf', '~> 1.1'
+gem 'chef', '~> 10'
 
 group :development do
-  gem 'berkshelf'
   gem 'vagrant', '~> 1.0.5'
 end
 
