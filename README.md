@@ -127,6 +127,37 @@ apt-pinning rules for the packages as needed. Example:
     # install the package
     package "thepackage"
 
+Installation
+------------
+
+This cookbook is **not** currently available on the Opscode Community site.
+(Another cookbook with the same name already exists, and the platform does not
+support namespaces.) Thus the best way is to use
+[Berkshelf](http://berkshelf.com/) or
+[Librarian](https://github.com/applicationsonline/librarian#readme).
+
+It is normally recommended to use the latest release. The version number (tag) can
+be found in the [changelog](https://github.com/reaktor/chef-debian/blob/master/CHANGELOG.md)
+or with something like:
+
+    git ls-remote --tags git://github.com/reaktor/chef-debian.git | sed 's_.*/__'
+
+### Berkshelf
+
+Add to the Berksfile:
+
+    cookbook 'debian',
+      :git => 'git://github.com/reaktor/chef-debian.git',
+      :branch => 'vX.Y.Z.'
+
+### Librarian
+
+Add to the Cheffile:
+
+    cookbook 'debian',
+      :git => 'git://github.com/reaktor/chef-debian.git',
+      :ref => 'vX.Y.Z.'
+
 License and Author
 ------------------
 
