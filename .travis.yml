@@ -1,0 +1,12 @@
+language: ruby
+rvm:
+  - 1.9.3
+
+bundler_args: --without=development
+
+before_script:
+  - bundle exec rake berks
+
+env:
+  - CHEF_VERSION=10.16.6
+  - CHEF_VERSION=
