@@ -19,12 +19,12 @@
 # limitations under the License.
 #
 
-include_recipe "apt"
-
 unless node['platform'] == "debian"
   log("recipe[debian::default] included in non-Debian platform. Skipping.") { level :warn }
   return
 end
+
+include_recipe "apt"
 
 template "/etc/apt/sources.list" do
   owner    "root"
