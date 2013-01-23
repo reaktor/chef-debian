@@ -1,8 +1,8 @@
 source :rubygems
 
 chef_version = []
-if ENV.key?('CHEF_VERSION') && !ENV['CHEF_VERSION'].empty?
-  chef_version = "= #{ENV['CHEF_VERSION']}"
+unless ENV['CHEF_VERSION'].to_s.empty?
+  chef_version = Gem::Requirement.new(ENV['CHEF_VERSION'])
 end
 
 gem 'rake'
