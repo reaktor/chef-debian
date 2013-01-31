@@ -48,14 +48,7 @@ def repository_resource(exec_action)
     action       :nothing
   end
   r.run_action exec_action
-  if r.updated_by_last_action?
-    new_resource.updated_by_last_action(true)
-    # Run `apt-get update` ourself as a workaround for apt cookbook bug
-    # introduced by http://tickets.opscode.com/browse/COOK-2171
-    execute "apt-get update" do
-      action :run
-    end
-  end
+  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end
 
 def preferences_resourse(exec_action)
