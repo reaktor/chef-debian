@@ -6,11 +6,11 @@ unless ENV['CHEF_VERSION'].to_s.empty?
 end
 
 gem 'rake'
-gem 'berkshelf', '~> 1.1'
+gem 'berkshelf', '>= 1.1.3', '< 2.0'
 gem 'chef', chef_version
 
 group :development do
-  gem 'vagrant', '~> 1.0.5'
+  gem 'vagrant', '~> 1.0'
 end
 
 group :test do
