@@ -1,3 +1,10 @@
+## v1.1.2
+
+- Use `apt_preference` resource to create the repo pinning rule
+- Remove the `apt-get update` workaround ([#3][3])
+- Add foodcritic and Knife cookbook tests
+- Test with latest Chef 10 and 11 releases on Travis
+
 ## v1.1.0
 
 - Workaround for apt cookbook not running `apt-get update` on apt_repository
