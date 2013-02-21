@@ -9,10 +9,6 @@ gem 'rake'
 gem 'berkshelf', '>= 1.1.3', '< 2.0'
 gem 'chef', chef_version
 
-group :development do
-  gem 'vagrant', '~> 1.0'
-end
-
 group :test do
   gem 'foodcritic', '~> 1.7'
 end
