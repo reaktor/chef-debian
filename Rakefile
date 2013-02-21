@@ -1,5 +1,6 @@
 require 'foodcritic'
 
+desc "Run all tests"
 task :default => [:foodcritic, :knife]
 
 FoodCritic::Rake::LintTask.new do |t|
