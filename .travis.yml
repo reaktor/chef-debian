@@ -1,7 +1,6 @@
 language: ruby
 
 bundler_args: --without=development
-before_script: bundle exec rake berks
 
 rvm:
   - 1.9.3

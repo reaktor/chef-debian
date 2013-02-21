@@ -6,7 +6,6 @@ unless ENV['CHEF_VERSION'].to_s.empty?
 end
 
 gem 'rake'
-gem 'berkshelf', '>= 1.1.3', '< 2.0'
 gem 'chef', chef_version
 
 group :test do
