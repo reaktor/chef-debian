@@ -1,4 +1,4 @@
-source :rubygems
+source 'https://rubygems.org/'
 
 chef_version = []
 unless ENV['CHEF_VERSION'].to_s.empty?
