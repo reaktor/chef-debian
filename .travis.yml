@@ -5,8 +5,8 @@ bundler_args: --without=development
 rvm:
   - 1.9.3
 env:
-  - CHEF_VERSION=
-  - CHEF_VERSION="~> 10.18"
+  - CHEF_VERSION="~> 11"
+  - CHEF_VERSION="~> 10"
 
 notifications:
   email: cookbooks@reaktor.fi
