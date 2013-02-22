@@ -97,11 +97,13 @@ Attribute parameters:
 
 Example:
 
-    # feel the history
-    debian_repository "woody" do
-      uri "http://archive.debian.org/debian"
-      pin_priority 200
-    end
+```ruby
+# feel the history
+debian_repository "woody" do
+  uri "http://archive.debian.org/debian"
+  pin_priority 200
+end
+```
 
 Usage
 -----
@@ -115,29 +117,33 @@ The other option is to add the wanted repositories (e.g.
 You might also want to set the default base URI to point to your local mirror.
 For example in a role:
 
-    default_attributes(
-      :debian => {
-        :mirror => "http://ftp.fi.debian.org/debian"
-      }
-    )
+```ruby
+default_attributes(
+  :debian => {
+    :mirror => "http://ftp.fi.debian.org/debian"
+  }
+)
+```
 
 Other cookbooks that need packages from a specific repository should depend on
 this cookbook, include the corresponding repository recipe and possibly add
 apt-pinning rules for the packages as needed. Example:
 
-    # configure backports.debian.org
-    include_recipe "debian::backports"
+```ruby
+# configure backports.debian.org
+include_recipe "debian::backports"
 
-    # set apt-pinning rules
-    %w[thepackage and some dependencies].each do |pkg|
-      apt_preference pkg do
-        pin "release o=Debian Backports"
-        pin_priority "700"
-      end
-    end
+# set apt-pinning rules
+%w[thepackage and some dependencies].each do |pkg|
+  apt_preference pkg do
+    pin "release o=Debian Backports"
+    pin_priority "700"
+  end
+end
 
-    # install the package
-    package "thepackage"
+# install the package
+package "thepackage"
+```
 
 Installation
 ------------
@@ -152,23 +158,29 @@ It is normally recommended to use the latest release. The version number (tag) c
 be found in the [changelog](https://github.com/reaktor/chef-debian/blob/master/CHANGELOG.md)
 or with something like:
 
-    git ls-remote --tags git://github.com/reaktor/chef-debian.git | sed 's_.*/__'
+```sh
+git ls-remote --tags git://github.com/reaktor/chef-debian.git | sed 's_.*/__'
+```
 
 ### Berkshelf
 
 Add to the Berksfile:
 
-    cookbook 'debian',
-      :git => 'git://github.com/reaktor/chef-debian.git',
-      :branch => 'vX.Y.Z.'
+```ruby
+cookbook 'debian',
+  :git => 'git://github.com/reaktor/chef-debian.git',
+  :branch => 'vX.Y.Z.'
+```
 
 ### Librarian
 
 Add to the Cheffile:
 
-    cookbook 'debian',
-      :git => 'git://github.com/reaktor/chef-debian.git',
-      :ref => 'vX.Y.Z.'
+```ruby
+cookbook 'debian',
+  :git => 'git://github.com/reaktor/chef-debian.git',
+  :ref => 'vX.Y.Z.'
+```
 
 License and Author
 ------------------
