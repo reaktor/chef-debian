@@ -24,14 +24,14 @@ unless node['platform'] == "debian"
   return
 end
 
-include_recipe "apt"
-
 template "/etc/apt/sources.list" do
   owner    "root"
   group    "root"
   mode     00644
   notifies :run, "execute[apt-get update]", :immediately
 end
+
+include_recipe "apt"
 
 %w[backports security stable_proposed_updates stable_updates testing unstable].each do |repo|
   include_recipe "debian::#{repo}" if node['debian'][repo]

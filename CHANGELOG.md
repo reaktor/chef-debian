@@ -1,6 +1,7 @@
 # 1.1.3 / _Not released yet_
 
 - Use new backports URL from Wheezy on ([GH-5])
+- Include apt recipe only after sources.list has been updated
 
 # 1.1.2 / 2013-02-06
 
