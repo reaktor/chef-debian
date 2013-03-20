@@ -56,22 +56,20 @@ specified via the above attributes.
 
 The other recipes configure apt to use the corresponding Debian repository:
 
-  * `backports` - Sets up apt source for [Debian
-    Backports](http://backports.debian.org/) repository.
-  * `security` - Sets up apt source for [Debian Security
-    Updates](http://www.debian.org/security/) repository.
+  * `backports` - Sets up apt source for [Debian Backports]
+    (http://backports.debian.org/) repository.
+  * `security` - Sets up apt source for [Debian Security Updates]
+    (http://www.debian.org/security/) repository.
   * `sid` - Alias for `unstable` recipe.
   * `stable_proposed_updates` - Sets up apt source for [Debian
     stable-proposed-updates](http://wiki.debian.org/StableProposedUpdates)
     repository and includes `stable_updates` recipe.
-  * `stable_updates` - Sets up apt source for [Debian
-    stable-updates](http://wiki.debian.org/StableUpdates) repository.
-  * `testing` - Sets up apt source for [Debian
-    "testing"](http://www.debian.org/releases/testing/) repository with pin
-    priority 50.
-  * `unstable` - Sets up apt source for [Debian
-    "unstable"](http://www.debian.org/releases/unstable/) repository with pin
-    priority 40.
+  * `stable_updates` - Sets up apt source for [Debian stable-updates]
+    (http://wiki.debian.org/StableUpdates) repository.
+  * `testing` - Sets up apt source for [Debian "testing"]
+    (http://www.debian.org/releases/testing/) repository with pin priority 50.
+  * `unstable` - Sets up apt source for [Debian "unstable"]
+    (http://www.debian.org/releases/unstable/) repository with pin priority 40.
 
 Resources/Providers
 -------------------
@@ -109,10 +107,13 @@ Usage
 -----
 
 If you want to manage `/etc/apt/souces.list` with Chef, add the default recipe
-to the run list. Then you can also specify which additional repositories are
-configured by setting `node['debian']['<repo>']` attributes to true or false.
-The other option is to add the wanted repositories (e.g.
-`recipe[debian::backports]`) directly to the run list.
+to the run list, preferably as the first one. The default recipe includes
+apt::default, so you don't need to add it.
+
+Then you can also specify which additional repositories are configured by
+setting `node['debian']['<repo>']` attributes to true or false. The other
+option is to add the wanted repositories (e.g. `recipe[debian::backports]`)
+directly to the run list.
 
 You might also want to set the default base URI to point to your local mirror.
 For example in a role:
