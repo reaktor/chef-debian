@@ -1,5 +1,7 @@
 # 1.1.3 / _Not released yet_
 
+- Use new backports URL from Wheezy on ([GH-5])
+
 # 1.1.2 / 2013-02-06
 
 - Use `apt_preference` resource to create the repo pinning rule
@@ -20,3 +22,4 @@
 
 [GH-1]:  https://github.com/reaktor/chef-debian/issues/1  "Issue 1"
 [GH-3]:  https://github.com/reaktor/chef-debian/issues/3  "Issue 3"
+[GH-5]:  https://github.com/reaktor/chef-debian/issues/5  "Issue 5"

@@ -20,6 +20,9 @@
 #
 
 debian_repository "backports" do
-  uri "http://backports.debian.org/debian-backports"
+  if node['platform_version'].to_i < 7
+    # pre-wheezy backports url
+    uri "http://backports.debian.org/debian-backports"
+  end
   distribution "#{node['lsb']['codename']}-backports"
 end
