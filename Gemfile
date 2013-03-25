@@ -11,5 +11,5 @@ gem 'chef', chef_version
 group :test do
   gem 'berkshelf',  '~> 1.3'
   gem 'chefspec',   '>= 1.0.0.rc1'
-  gem 'foodcritic', '~> 1.7'
+  gem 'foodcritic', '~> 2.0'
 end
