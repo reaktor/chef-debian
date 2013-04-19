@@ -4,7 +4,7 @@ desc "Run all tests"
 task :default => [:foodcritic, :knife, :chefspec]
 
 FoodCritic::Rake::LintTask.new do |t|
-  t.options = {:fail_tags => ['correctness']}
+  t.options = {:fail_tags => ['any']}
 end
 
 desc "Test cookbooks via knife"
