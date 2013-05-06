@@ -2,6 +2,7 @@
 
 - Use [http.debian.net](http://http.debian.net/) as a default mirror
 - Don't rely on `lsb_release` being installed ([GH-6])
+- More ChefSpec tests
 
 # 1.2.0 / 2013-03-22
 
