@@ -1,6 +1,7 @@
 # 1.2.1 /  _Not released yet_
 
 - Use [http.debian.net](http://http.debian.net/) as a default mirror
+- Don't rely on `lsb_release` being installed ([GH-6])
 
 # 1.2.0 / 2013-03-22
 
@@ -31,3 +32,4 @@
 [GH-2]:  https://github.com/reaktor/chef-debian/issues/2  "Issue 2"
 [GH-3]:  https://github.com/reaktor/chef-debian/issues/3  "Issue 3"
 [GH-5]:  https://github.com/reaktor/chef-debian/issues/5  "Issue 5"
+[GH-6]:  https://github.com/reaktor/chef-debian/issues/6  "Issue 6"

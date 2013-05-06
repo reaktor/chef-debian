@@ -21,5 +21,5 @@
 
 debian_repository "security" do
   uri "http://security.debian.org/debian-security"
-  distribution "#{node['lsb']['codename']}/updates"
+  distribution "#{node['debian']['codename']}/updates"
 end

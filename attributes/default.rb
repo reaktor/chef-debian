@@ -30,3 +30,13 @@ default['debian']['stable_proposed_updates'] = false
 default['debian']['stable_updates']          = true
 default['debian']['testing']                 = false
 default['debian']['unstable']                = false
+
+default['debian']['codename'] = (node['lsb'] && node['lsb']['codename']) ||
+  case node['platform_version']
+  when /^6\.0\./
+    "squeeze"
+  when /^7\.0\./
+    "wheezy"
+  else
+   "stable"
+  end

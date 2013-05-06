@@ -24,5 +24,5 @@ debian_repository "backports" do
     # pre-wheezy backports url
     uri "http://backports.debian.org/debian-backports"
   end
-  distribution "#{node['lsb']['codename']}-backports"
+  distribution "#{node['debian']['codename']}-backports"
 end

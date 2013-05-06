@@ -22,5 +22,5 @@
 include_recipe "debian::stable_updates"
 
 debian_repository "stable-proposed-updates" do
-  distribution "#{node['lsb']['codename']}-proposed-updates"
+  distribution "#{node['debian']['codename']}-proposed-updates"
 end

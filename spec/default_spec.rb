@@ -28,6 +28,20 @@ describe 'debian::default' do
     it 'does not enable testing repository' do
       chef_run.should_not include_recipe 'debian::testing'
     end
+
+    context 'without lsb-release' do
+      let(:chef_run) do
+        ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+          node.automatic_attrs['lsb'] = {}
+          node.automatic_attrs['platform_version'] = '7.0.0'
+        end.converge 'debian::default'
+      end
+
+      it 'configures /etc/apt/sources.list file' do
+        chef_run.should create_file_with_content '/etc/apt/sources.list',
+          'deb http://http.debian.net/debian wheezy main contrib non-free'
+      end
+    end
   end
 
   context 'on non-Debian' do
