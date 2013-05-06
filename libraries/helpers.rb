@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: debian
-# Attributes:: default
+# Library:: Chef::Debian::Helpers
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
@@ -19,16 +19,23 @@
 # limitations under the License.
 #
 
-default['debian']['mirror']                  = "http://http.debian.net/debian"
-default['debian']['components']              = %w[main contrib non-free]
-default['debian']['deb_src']                 = false
+class Chef
+  module Debian
+    module Helpers
 
-# Whether to include the recipes by default recipe
-default['debian']['backports']               = false
-default['debian']['security']                = true
-default['debian']['stable_proposed_updates'] = false
-default['debian']['stable_updates']          = true
-default['debian']['testing']                 = false
-default['debian']['unstable']                = false
+      def self.codename(node)
+        (node['lsb'] && node['lsb']['codename']) ||
+          codename_for_platform_version(node['platform_version'])
+      end
 
-default['debian']['codename'] = Chef::Debian::Helpers.codename(node)
+      def self.codename_for_platform_version(version)
+        case version
+        when /^6\.0\./ then "squeeze"
+        when /^7\.0\./ then "wheezy"
+        else "stable"
+        end
+      end
+
+    end
+  end
+end
