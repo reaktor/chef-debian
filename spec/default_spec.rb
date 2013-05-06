@@ -42,5 +42,9 @@ describe 'debian::default' do
     it 'does not include apt recipe' do
       chef_run.should_not include_recipe 'apt'
     end
+
+    it 'does not touch /etc/apt/sources.list file' do
+      chef_run.should_not create_file '/etc/apt/sources.list'
+    end
   end
 end
