@@ -4,7 +4,7 @@ describe 'debian::default' do
   context 'on Debian' do
     let(:chef_run) do
       ChefSpec::ChefRunner.new(platform: 'debian') do |node|
-        node.automatic_attrs['lsb'] = {'codename' => 'cheese'}
+        node.automatic_attrs['lsb'] = { 'codename' => 'cheese' }
       end.converge 'debian::default'
     end
 
