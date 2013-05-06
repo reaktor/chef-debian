@@ -6,8 +6,8 @@ Table of Contents
 
 * [Description](#description)
 * [Requirements](#requirements)
-* [Attributes](#attributes)
 * [Recipes](#recipes)
+* [Attributes](#attributes)
 * [Resources/Providers](#resourcesproviders)
 * [Usage](#usage)
 * [Installation](#installation)
@@ -26,27 +26,6 @@ Intended for use in Debian, but could be adapted for other Apt based platforms.
 Tested on Debian 6.0 Squeeze and Debian 7.0 Wheezy.
 
 Requires [apt](http://community.opscode.com/cookbooks/apt) community cookbook.
-
-Attributes
-----------
-
-Attribute                      | Description                    | Default
--------------------------------|--------------------------------|----------
-`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
-`node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
-`node['debian']['deb_src']`    | If true, enables apt source lines by default | false
-
-The following attributes specify if the corresponding recipe/repository is
-included by the default recipe:
-
-Attribute                                   | Default
---------------------------------------------|--------
-`node['debian']['backports']`               | false
-`node['debian']['security']`                | true
-`node['debian']['stable_proposed_updates']` | false
-`node['debian']['stable_updates']`          | true
-`node['debian']['testing']`                 | false
-`node['debian']['unstable']`                | false
 
 Recipes
 -------
@@ -71,6 +50,27 @@ The other recipes configure apt to use the corresponding Debian repository:
     (http://www.debian.org/releases/testing/) repository with pin priority 50.
   * `unstable` - Sets up apt source for [Debian "unstable"]
     (http://www.debian.org/releases/unstable/) repository with pin priority 40.
+
+Attributes
+----------
+
+Attribute                      | Description                    | Default
+-------------------------------|--------------------------------|----------
+`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
+`node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
+`node['debian']['deb_src']`    | If true, enables apt source lines by default | false
+
+The following attributes specify if the corresponding recipe/repository is
+included by the default recipe:
+
+Attribute                                   | Default
+--------------------------------------------|--------
+`node['debian']['backports']`               | false
+`node['debian']['security']`                | true
+`node['debian']['stable_proposed_updates']` | false
+`node['debian']['stable_updates']`          | true
+`node['debian']['testing']`                 | false
+`node['debian']['unstable']`                | false
 
 Resources/Providers
 -------------------
