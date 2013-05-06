@@ -3,3 +3,5 @@
 /Berksfile.lock
 /Gemfile.lock
 /fixtures/
+/.kitchen/
+/.kitchen.local.yml
