@@ -20,5 +20,5 @@
 #
 
 debian_repository "stable-updates" do
-  distribution "#{node['lsb']['codename']}-updates"
+  distribution "#{node['debian']['codename']}-updates"
 end
