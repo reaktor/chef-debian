@@ -19,19 +19,19 @@
 # limitations under the License.
 #
 
-unless node['platform'] == "debian"
-  log("recipe[debian::default] included in non-Debian platform. Skipping.") { level :warn }
+unless node['platform'] == 'debian'
+  log('recipe[debian::default] included in non-Debian platform. Skipping.') { level :warn }
   return
 end
 
-template "/etc/apt/sources.list" do
-  owner    "root"
-  group    "root"
+template '/etc/apt/sources.list' do
+  owner    'root'
+  group    'root'
   mode     00644
-  notifies :run, "execute[apt-get update]", :immediately
+  notifies :run, 'execute[apt-get update]', :immediately
 end
 
-include_recipe "apt"
+include_recipe 'apt'
 
 %w[backports security stable_proposed_updates stable_updates testing unstable].each do |repo|
   include_recipe "debian::#{repo}" if node['debian'][repo]
