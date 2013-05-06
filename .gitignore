@@ -2,4 +2,4 @@
 /.vagrant
 /Berksfile.lock
 /Gemfile.lock
-/tmp/
+/fixtures/

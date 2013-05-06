@@ -1,15 +1,17 @@
 source 'https://rubygems.org/'
 
-chef_version = []
-unless ENV['CHEF_VERSION'].to_s.empty?
-  chef_version = Gem::Requirement.new(ENV['CHEF_VERSION'])
+chef_version = Gem::Requirement.new(ENV.fetch('CHEF_VERSION', '>= 10'))
+
+gem 'chef', chef_version
+gem 'rake'
+
+group :development, :test do
+  gem 'berkshelf',  '~> 1.3'
+  gem 'chefspec',   '~> 1.0'
+  gem 'foodcritic', '~> 2.0'
+  gem 'tailor',     '~> 1.2'
 end
 
-gem 'rake'
-gem 'chef', chef_version
-
-group :test do
-  gem 'berkshelf',  '~> 1.3'
-  gem 'chefspec',   '>= 1.0.0.rc1'
-  gem 'foodcritic', '~> 2.0'
+group :development do
+  gem 'guard-foodcritic', '>= 1.0.1'
 end
