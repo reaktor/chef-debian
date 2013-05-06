@@ -112,12 +112,13 @@ to the run list, preferably as the first one. The default recipe includes
 apt::default, so you don't need to add it.
 
 Then you can also specify which additional repositories are configured by
-setting `node['debian']['<repo>']` attributes to true or false. The other
-option is to add the wanted repositories (e.g. `recipe[debian::backports]`)
-directly to the run list.
+setting `node['debian']['<repo>']` attributes to true or false. By default 
+a standard set is included. The other option is to add the wanted repositories
+(e.g. `recipe[debian::backports]`) directly to the run list.
 
-You might also want to set the default base URI to point to your local mirror.
-For example in a role:
+The default base URI (http.debian.net) should be fine for most cases as it
+redirects to a geographically closest mirror. You can also to set it explicitly
+for example in a role:
 
 ```ruby
 default_attributes(
