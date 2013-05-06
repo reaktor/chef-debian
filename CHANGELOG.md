@@ -1,4 +1,4 @@
-# 1.2.1 /  _Not released yet_
+# 1.3.0 /  2013-05-06
 
 - Use [http.debian.net](http://http.debian.net/) as a default mirror
 - Don't rely on `lsb_release` being installed ([GH-6])
