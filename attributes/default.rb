@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-default['debian']['mirror']                  = "http://ftp.debian.org/debian"
+default['debian']['mirror']                  = "http://http.debian.net/debian"
 default['debian']['components']              = %w[main contrib non-free]
 default['debian']['deb_src']                 = false
 

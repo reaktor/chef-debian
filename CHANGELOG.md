@@ -1,5 +1,6 @@
 # 1.2.1 /  _Not released yet_
 
+- Use [http.debian.net](http://http.debian.net/) as a default mirror
 
 # 1.2.0 / 2013-03-22
 

@@ -18,7 +18,7 @@ describe 'debian::default' do
 
     it 'configures /etc/apt/sources.list file' do
       chef_run.should create_file_with_content '/etc/apt/sources.list',
-        'deb http://ftp.debian.org/debian cheese main contrib non-free'
+        'deb http://http.debian.net/debian cheese main contrib non-free'
     end
 
     it 'enables security repository' do

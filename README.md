@@ -31,7 +31,7 @@ Attributes
 
 Attribute                      | Description                    | Default
 -------------------------------|--------------------------------|----------
-`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://ftp.debian.org/debian"`
+`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
 `node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
 `node['debian']['deb_src']`    | If true, enables apt source lines by default | false
 
