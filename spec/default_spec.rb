@@ -46,11 +46,14 @@ describe 'debian::default' do
 
   context 'on non-Debian' do
     let(:chef_run) do
+      Chef::Log.stub(:warn)
       ChefSpec::ChefRunner.new(platform: 'ubuntu').converge 'debian::default'
     end
 
     it 'warns' do
-      chef_run.should log 'recipe[debian::default] included in non-Debian platform. Skipping.'
+      Chef::Log.should_receive(:warn).with(
+        'recipe[debian::default] included in non-Debian platform. Skipping.')
+      chef_run.should be
     end
 
     it 'does not include apt recipe' do

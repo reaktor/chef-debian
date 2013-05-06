@@ -20,7 +20,7 @@
 #
 
 unless node['platform'] == 'debian'
-  log('recipe[debian::default] included in non-Debian platform. Skipping.') { level :warn }
+  Chef::Log.warn 'recipe[debian::default] included in non-Debian platform. Skipping.'
   return
 end
 
