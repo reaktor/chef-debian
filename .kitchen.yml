@@ -13,5 +13,7 @@ platforms:
 
 suites:
 - name: default
-  run_list: ["recipe[debian]"]
+  run_list:
+  - recipe[minitest-handler]
+  - recipe[debian_test]
   attributes: {}

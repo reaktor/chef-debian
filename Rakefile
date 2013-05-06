@@ -9,7 +9,7 @@ desc 'Run all tests'
 task :default => [:foodcritic, :knife, :spec, :tailor]
 
 task :prepare do
-  sh 'berks', 'install', '--path', FIXTURES_PATH
+  sh 'berks', 'install', '--path', FIXTURES_PATH, '--except', 'integration'
   # Run cleanup at exit unless an exception was raised.
   at_exit { Rake::Task['cleanup'].invoke if $!.nil? }
 end
