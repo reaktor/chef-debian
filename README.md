@@ -6,8 +6,8 @@ Table of Contents
 
 * [Description](#description)
 * [Requirements](#requirements)
-* [Attributes](#attributes)
 * [Recipes](#recipes)
+* [Attributes](#attributes)
 * [Resources/Providers](#resourcesproviders)
 * [Usage](#usage)
 * [Installation](#installation)
@@ -23,29 +23,9 @@ Requirements
 ------------
 
 Intended for use in Debian, but could be adapted for other Apt based platforms.
+Tested on Debian 6.0 Squeeze and Debian 7.0 Wheezy.
 
-Requires "apt" cookbook.
-
-Attributes
-----------
-
-Attribute                      | Description                    | Default
--------------------------------|--------------------------------|----------
-`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
-`node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
-`node['debian']['deb_src']`    | If true, enables apt source lines by default | false
-
-The following attributes specify if the corresponding recipe/repository is
-included by the default recipe:
-
-Attribute                                   | Default
---------------------------------------------|--------
-`node['debian']['backports']`               | false
-`node['debian']['security']`                | true
-`node['debian']['stable_proposed_updates']` | false
-`node['debian']['stable_updates']`          | true
-`node['debian']['testing']`                 | false
-`node['debian']['unstable']`                | false
+Requires [apt](http://community.opscode.com/cookbooks/apt) community cookbook.
 
 Recipes
 -------
@@ -70,6 +50,27 @@ The other recipes configure apt to use the corresponding Debian repository:
     (http://www.debian.org/releases/testing/) repository with pin priority 50.
   * `unstable` - Sets up apt source for [Debian "unstable"]
     (http://www.debian.org/releases/unstable/) repository with pin priority 40.
+
+Attributes
+----------
+
+Attribute                      | Description                    | Default
+-------------------------------|--------------------------------|----------
+`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
+`node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
+`node['debian']['deb_src']`    | If true, enables apt source lines by default | false
+
+The following attributes specify if the corresponding recipe/repository is
+included by the default recipe:
+
+Attribute                                   | Default
+--------------------------------------------|--------
+`node['debian']['backports']`               | false
+`node['debian']['security']`                | true
+`node['debian']['stable_proposed_updates']` | false
+`node['debian']['stable_updates']`          | true
+`node['debian']['testing']`                 | false
+`node['debian']['unstable']`                | false
 
 Resources/Providers
 -------------------
@@ -111,12 +112,13 @@ to the run list, preferably as the first one. The default recipe includes
 apt::default, so you don't need to add it.
 
 Then you can also specify which additional repositories are configured by
-setting `node['debian']['<repo>']` attributes to true or false. The other
-option is to add the wanted repositories (e.g. `recipe[debian::backports]`)
-directly to the run list.
+setting `node['debian']['<repo>']` attributes to true or false. By default 
+a standard set is included. The other option is to add the wanted repositories
+(e.g. `recipe[debian::backports]`) directly to the run list.
 
-You might also want to set the default base URI to point to your local mirror.
-For example in a role:
+The default base URI (http.debian.net) should be fine for most cases as it
+redirects to a geographically closest mirror. You can also to set it explicitly
+for example in a role:
 
 ```ruby
 default_attributes(
@@ -188,16 +190,6 @@ License and Author
 
 Author:: Teemu Matilainen <<teemu.matilainen@reaktor.fi>>
 
-Copyright 2011-2013, [Reaktor Innovations Oy](http://reaktor.fi/en)
+Copyright © 2011-2013, [Reaktor Innovations Oy](http://reaktor.fi/en)
 
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in compliance with the License.
-You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software
-distributed under the License is distributed on an "AS IS" BASIS,
-WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and
-limitations under the License.
+Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE).
