@@ -42,6 +42,32 @@ describe 'debian::default' do
           'deb http://http.debian.net/debian wheezy main contrib non-free'
       end
     end
+
+    context 'with specified node attributes' do
+      let(:chef_run) do
+        ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+          node.automatic_attrs['lsb'] = { 'codename' => 'cheese' }
+          node.set['debian']['mirror']     = 'http://example.com/debian-mirror'
+          node.set['debian']['components'] = %w[resistor diode]
+          node.set['debian']['deb_src']    = true
+          node.set['debian']['backports']  = true
+        end.converge 'debian::default'
+      end
+
+      it 'configures /etc/apt/sources.list file' do
+        chef_run.should create_file_with_content '/etc/apt/sources.list',
+          'deb http://example.com/debian-mirror cheese resistor diode'
+      end
+
+      it 'adds deb-src lines' do
+        chef_run.should create_file_with_content '/etc/apt/sources.list',
+          'deb-src http://example.com/debian-mirror cheese resistor diode'
+      end
+
+      it 'enables backports repository' do
+        chef_run.should include_recipe 'debian::backports'
+      end
+    end
   end
 
   context 'on non-Debian' do
