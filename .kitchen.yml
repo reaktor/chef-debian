@@ -1,0 +1,19 @@
+---
+driver_plugin: vagrant
+
+platforms:
+- name: debian-7.0
+  driver_config:
+    box: debian-7.0
+    box_url: https://reaktor-vm.s3.amazonaws.com/vagrant/debian-7.0.0_chef-11.4.4.box
+- name: debian-6.0
+  driver_config:
+    box: debian-6.0
+    box_url: https://reaktor-vm.s3.amazonaws.com/vagrant/debian-6.0.7_chef-11.4.4.box
+
+suites:
+- name: default
+  run_list:
+  - recipe[minitest-handler]
+  - recipe[debian_test]
+  attributes: {}
