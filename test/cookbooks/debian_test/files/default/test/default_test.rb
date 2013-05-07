@@ -1,4 +1,4 @@
-require_relative './support/helpers'
+require_relative './helpers'
 
 describe 'debian_test::default' do
   include Helpers::DebianTest
