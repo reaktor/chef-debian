@@ -19,7 +19,7 @@ describe 'debian::backports' do
     let(:chef_run) do
       ChefSpec::ChefRunner.new(platform: 'debian', step_into: ['debian_repository', 'apt_repository']) do |node|
         node.automatic_attrs['lsb'] = { 'codename' => 'wheezy' }
-        node.automatic_attrs['platform_version'] = '7.0.0'
+        node.automatic_attrs['platform_version'] = '7.0'
       end.converge 'debian::backports'
     end
 

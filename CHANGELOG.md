@@ -1,5 +1,6 @@
 # 1.3.1 /  _Not released yet_
 
+- Fix non-lsb codename detection on first Wheezy release ([GH-6])
 
 # 1.3.0 /  2013-05-06
 
