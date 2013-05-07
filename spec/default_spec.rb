@@ -30,16 +30,32 @@ describe 'debian::default' do
     end
 
     context 'without lsb-release' do
-      let(:chef_run) do
-        ChefSpec::ChefRunner.new(platform: 'debian') do |node|
-          node.automatic_attrs['lsb'] = {}
-          node.automatic_attrs['platform_version'] = '7.0.1'
-        end.converge 'debian::default'
+      context 'with first release version' do
+        let(:chef_run) do
+          ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+            node.automatic_attrs['lsb'] = {}
+            node.automatic_attrs['platform_version'] = '7.0'
+          end.converge 'debian::default'
+        end
+
+        it 'configures /etc/apt/sources.list file' do
+          chef_run.should create_file_with_content '/etc/apt/sources.list',
+            'deb http://http.debian.net/debian wheezy main contrib non-free'
+        end
       end
 
-      it 'configures /etc/apt/sources.list file' do
-        chef_run.should create_file_with_content '/etc/apt/sources.list',
-          'deb http://http.debian.net/debian wheezy main contrib non-free'
+      context 'with a point release' do
+        let(:chef_run) do
+          ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+            node.automatic_attrs['lsb'] = {}
+            node.automatic_attrs['platform_version'] = '7.0.1'
+          end.converge 'debian::default'
+        end
+
+        it 'configures /etc/apt/sources.list file' do
+          chef_run.should create_file_with_content '/etc/apt/sources.list',
+            'deb http://http.debian.net/debian wheezy main contrib non-free'
+        end
       end
     end
 
