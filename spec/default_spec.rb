@@ -3,7 +3,7 @@ require 'spec_helper'
 describe 'debian::default' do
   context 'on Debian' do
     let(:chef_run) do
-      ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+      ChefSpec::ChefRunner.new(platform: 'debian', version: '6.0.5') do |node|
         node.automatic_attrs['lsb'] = { 'codename' => 'cheese' }
       end.converge 'debian::default'
     end
@@ -32,7 +32,7 @@ describe 'debian::default' do
     context 'without lsb-release' do
       context 'with first release version' do
         let(:chef_run) do
-          ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+          ChefSpec::ChefRunner.new(platform: 'debian', version: '7.0') do |node|
             node.automatic_attrs['lsb'] = {}
             node.automatic_attrs['platform_version'] = '7.0'
           end.converge 'debian::default'
@@ -46,7 +46,7 @@ describe 'debian::default' do
 
       context 'with a point release' do
         let(:chef_run) do
-          ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+          ChefSpec::ChefRunner.new(platform: 'debian', version: '7.0') do |node|
             node.automatic_attrs['lsb'] = {}
             node.automatic_attrs['platform_version'] = '7.0.1'
           end.converge 'debian::default'
@@ -61,7 +61,7 @@ describe 'debian::default' do
 
     context 'with specified node attributes' do
       let(:chef_run) do
-        ChefSpec::ChefRunner.new(platform: 'debian') do |node|
+        ChefSpec::ChefRunner.new(platform: 'debian', version: '7.0') do |node|
           node.automatic_attrs['lsb'] = { 'codename' => 'cheese' }
           node.set['debian']['mirror']     = 'http://example.com/debian-mirror'
           node.set['debian']['components'] = %w[resistor diode]
@@ -89,7 +89,7 @@ describe 'debian::default' do
   context 'on non-Debian' do
     let(:chef_run) do
       Chef::Log.stub(:warn)
-      ChefSpec::ChefRunner.new(platform: 'ubuntu').converge 'debian::default'
+      ChefSpec::ChefRunner.new(platform: 'ubuntu', version: '12.04').converge 'debian::default'
     end
 
     it 'warns' do

@@ -1,5 +1,6 @@
 # 1.3.3 /  _Not released yet_
 
+- Specify platform versions for Fauxhai in ChefSpec tests
 
 # 1.3.2 /  2013-05-07
 

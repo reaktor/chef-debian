@@ -3,10 +3,11 @@ require 'spec_helper'
 describe 'debian::backports' do
   context 'on Squeeze' do
     let(:chef_run) do
-      ChefSpec::ChefRunner.new(platform: 'debian', step_into: ['debian_repository', 'apt_repository']) do |node|
-        node.automatic_attrs['lsb'] = { 'codename' => 'squeeze' }
-        node.automatic_attrs['platform_version'] = '6.0.7'
-      end.converge 'debian::backports'
+      runner = ChefSpec::ChefRunner.new(
+        platform: 'debian', version: '6.0.5',
+        step_into: ['debian_repository', 'apt_repository']
+      )
+      runner.converge 'debian::backports'
     end
 
     it 'uses backports.debian.org' do
@@ -17,10 +18,11 @@ describe 'debian::backports' do
 
   context 'on Wheezy' do
     let(:chef_run) do
-      ChefSpec::ChefRunner.new(platform: 'debian', step_into: ['debian_repository', 'apt_repository']) do |node|
-        node.automatic_attrs['lsb'] = { 'codename' => 'wheezy' }
-        node.automatic_attrs['platform_version'] = '7.0'
-      end.converge 'debian::backports'
+      runner = ChefSpec::ChefRunner.new(
+        platform: 'debian', version: '7.0',
+        step_into: ['debian_repository', 'apt_repository']
+      )
+      runner.converge 'debian::backports'
     end
 
     it 'uses mirror/wheezy-backports' do
