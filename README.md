@@ -37,7 +37,7 @@ specified via the above attributes.
 The other recipes configure apt to use the corresponding Debian repository:
 
   * `backports` - Sets up apt source for [Debian Backports]
-    (http://backports.debian.org/) repository.
+    (http://wiki.debian.org/Backports) repository.
   * `security` - Sets up apt source for [Debian Security Updates]
     (http://www.debian.org/security/) repository.
   * `sid` - Alias for `unstable` recipe.
