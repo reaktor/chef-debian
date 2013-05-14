@@ -8,7 +8,7 @@ Table of Contents
 * [Requirements](#requirements)
 * [Recipes](#recipes)
 * [Attributes](#attributes)
-* [Resources/Providers](#resourcesproviders)
+* [Resources and Providers](#resources-and-providers)
 * [Usage](#usage)
 * [Installation](#installation)
 * [License and Author](#license-and-author)
@@ -16,13 +16,19 @@ Table of Contents
 Description
 -----------
 
-Configures (official) Debian Apt repositories. Includes also a LWRP which
-can be used to add and pin a Debian repository.
+Chef cookbook for managing Apt sources for official Debian repositories.
+
+This cookbook can be used to configure the whole system for all the wanted
+sources (stable, security, stable-updates, etc.). Just including the "default"
+recipe to the run list gives a sensible default.
+
+Individual recipes can also be used by other cookbooks that need packages for
+example from the backports repository.
 
 Requirements
 ------------
 
-Intended for use in Debian, but could be adapted for other Apt based platforms.
+Intended for use in Debian, but could be modified for other Apt based platforms.
 Tested on Debian 6.0 Squeeze and Debian 7.0 Wheezy.
 
 Requires [apt](http://community.opscode.com/cookbooks/apt) community cookbook.
@@ -32,7 +38,7 @@ Recipes
 
 The `default` recipe configures _/etc/apt/sources.list_ using the mirror and
 components specified by node attributes. It also includes other recipes if
-specified via the above attributes.
+specified via [node attributes](#attributes).
 
 The other recipes configure apt to use the corresponding Debian repository:
 
@@ -72,7 +78,7 @@ Attribute                                   | Default
 `node['debian']['testing']`                 | false
 `node['debian']['unstable']`                | false
 
-Resources/Providers
+Resources and Providers
 -------------------
 
 ### debian_repository
@@ -108,11 +114,11 @@ Usage
 -----
 
 If you want to manage `/etc/apt/souces.list` with Chef, add the default recipe
-to the run list, preferably as the first one. The default recipe includes
-apt::default, so you don't need to add it.
+to the run list, preferably as the first one. The default recipe also includes
+"apt::default" recipe, so you don't need to add it.
 
 Then you can also specify which additional repositories are configured by
-setting `node['debian']['<repo>']` attributes to true or false. By default 
+setting `node['debian']['<repo>']` attributes to true or false. By default
 a standard set is included. The other option is to add the wanted repositories
 (e.g. `recipe[debian::backports]`) directly to the run list.
 
