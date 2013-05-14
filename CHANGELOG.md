@@ -1,5 +1,12 @@
-# 1.3.3 / _Not released yet_
+# 1.4.0 / 2013-05-14
 
+- First community site release! Replaces the earlier "debian" cookbook.
+    * Huge thanks and respect to [Guilhem Lettron](https://github.com/guilhem)
+      for giving the community site cookbook name for us.
+    * This version can be used as a drop-in replacement with default
+      attributes in some cases, but any custom node attributes for the old
+      cookbook **do not work**.
+    * Please read the [readme](README.md) for usage instructions.
 - Improve the readme
 - Specify platform versions for Fauxhai in ChefSpec tests
 

@@ -3,7 +3,7 @@ maintainer       'Reaktor Innovations Oy'
 maintainer_email 'cookbooks@reaktor.fi'
 license          'Apache v2.0'
 description      'Sets up Debian repositories'
-version          '1.3.3'
+version          '1.4.0'
 
 supports         'debian'
 
