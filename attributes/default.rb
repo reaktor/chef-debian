@@ -20,6 +20,7 @@
 #
 
 default['debian']['mirror']                  = "http://http.debian.net/debian"
+default['debian']['backports_mirror']        = nil
 default['debian']['components']              = %w[main contrib non-free]
 default['debian']['deb_src']                 = false
 

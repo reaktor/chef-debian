@@ -1,5 +1,11 @@
 # 1.4.1 / _Not released yet_
 
+- On squeeze use default mirror with /debian-backports suffix for backports
+  repository ([GH-7])
+    * Only fall back to backports.debian.org if the mirror URI does not end
+      with /debian
+    * Should work on most cases, but `node['debian']['backports_mirror']` can
+      be used for setting an explicit URI
 
 # 1.4.0 / 2013-05-14
 
@@ -54,3 +60,4 @@
 [GH-3]:  https://github.com/reaktor/chef-debian/issues/3  "Issue 3"
 [GH-5]:  https://github.com/reaktor/chef-debian/issues/5  "Issue 5"
 [GH-6]:  https://github.com/reaktor/chef-debian/issues/6  "Issue 6"
+[GH-7]:  https://github.com/reaktor/chef-debian/issues/7  "Issue 7"
