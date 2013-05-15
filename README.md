@@ -62,6 +62,7 @@ Attributes
 Attribute                      | Description                    | Default
 -------------------------------|--------------------------------|----------
 `node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
+`node['debian']['backports_mirror']` | Mirror URI for backports repository | `node['debian']['mirror']` (on Squeeze derived from it)
 `node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
 `node['debian']['deb_src']`    | If true, enables apt source lines by default | false
 

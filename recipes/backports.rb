@@ -20,9 +20,6 @@
 #
 
 debian_repository "backports" do
-  if node['platform_version'].to_i < 7
-    # pre-wheezy backports url
-    uri "http://backports.debian.org/debian-backports"
-  end
+  uri Chef::Debian::Helpers.backports_mirror(node)
   distribution "#{node['debian']['codename']}-backports"
 end
