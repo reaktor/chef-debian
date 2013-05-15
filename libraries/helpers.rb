@@ -36,6 +36,15 @@ class Chef
         end
       end
 
+      # Returns the URI for backports or nil if the default mirror should be used
+      def self.backports_mirror(node)
+        if node['platform_version'].to_i < 7
+          # pre-wheezy backports url
+          "http://backports.debian.org/debian-backports"
+        else
+          nil
+        end
+      end
     end
   end
 end
