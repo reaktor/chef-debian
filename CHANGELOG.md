@@ -6,6 +6,8 @@
       with /debian
     * Should work on most cases, but `node['debian']['backports_mirror']` can
       be used for setting an explicit URI
+- Add `backports-sloppy` recipe for [squeeze-backports-sloppy]
+  (http://backports.debian.org/Instructions/#index4h2) suite ([GH-8])
 
 # 1.4.0 / 2013-05-14
 
@@ -61,3 +63,4 @@
 [GH-5]:  https://github.com/reaktor/chef-debian/issues/5  "Issue 5"
 [GH-6]:  https://github.com/reaktor/chef-debian/issues/6  "Issue 6"
 [GH-7]:  https://github.com/reaktor/chef-debian/issues/7  "Issue 7"
+[GH-8]:  https://github.com/reaktor/chef-debian/issues/8  "Issue 8"
