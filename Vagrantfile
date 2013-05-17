@@ -4,8 +4,8 @@ Vagrant.configure('2') do |config|
   config.vm.provision :chef_solo do |chef|
     chef.log_level = :debug if ENV['DEBUG']
 
-    recipes = ENV['RECIPES'] || 'default'
-    recipes.split.each do |recipe|
+    recipes = ENV.fetch('RECIPES', 'default')
+    recipes.split(/[ ,]+/).each do |recipe|
       chef.add_recipe "debian::#{recipe}"
     end
   end
