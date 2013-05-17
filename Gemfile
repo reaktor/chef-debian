@@ -5,7 +5,7 @@ gem 'rake'
 
 group :development, :test do
   gem 'berkshelf',  '~> 1.3'
-  gem 'chefspec',   '~> 1.0'
+  gem 'chefspec',   '~> 1.2'
   gem 'foodcritic', '~> 2.0'
   gem 'tailor',     '~> 1.2'
 end

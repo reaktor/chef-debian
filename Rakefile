@@ -3,7 +3,7 @@ require 'rspec/core/rake_task'
 require 'tailor/rake_task'
 
 COOKBOOK_NAME = 'debian'
-FIXTURES_PATH = 'fixtures'
+FIXTURES_PATH = 'vendor/cookbooks'
 
 desc 'Run all tests'
 task :default => [:foodcritic, :knife, :spec, :tailor]
@@ -29,9 +29,7 @@ task :knife do
 end
 
 desc 'Run ChefSpec unit tests'
-RSpec::Core::RakeTask.new do |t|
-  t.pattern = File.join(FIXTURES_PATH, COOKBOOK_NAME, 'spec', '*_spec.rb')
-end
+RSpec::Core::RakeTask.new
 task :spec => :prepare
 
 Tailor::RakeTask.new do |t|

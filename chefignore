@@ -78,7 +78,7 @@ Procfile
 #############
 Berksfile
 Berksfile.lock
-cookbooks/*
+vendor/cookbooks
 tmp
 
 # Cookbooks #

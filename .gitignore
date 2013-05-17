@@ -2,6 +2,6 @@
 /.vagrant
 /Berksfile.lock
 /Gemfile.lock
-/fixtures/
+/vendor/cookbooks/
 /.kitchen/
 /.kitchen.local.yml
