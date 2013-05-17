@@ -33,6 +33,6 @@ end
 
 include_recipe 'apt'
 
-%w[backports backports-sloppy security stable_proposed_updates stable_updates testing unstable].each do |repo|
+%w[backports backports_sloppy security stable_proposed_updates stable_updates testing unstable].each do |repo|
   include_recipe "debian::#{repo}" if node['debian'][repo]
 end

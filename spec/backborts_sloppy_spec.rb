@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe 'debian::backports-sloppy' do
+describe 'debian::backports_sloppy' do
   context 'on Squeeze' do
     let(:chef_run) do
       runner = ChefSpec::ChefRunner.new(
@@ -8,7 +8,7 @@ describe 'debian::backports-sloppy' do
         step_into: ['debian_repository', 'apt_repository']
       )
       runner.node.set['debian']['mirror'] = 'http://example.com/debian'
-      runner.converge 'debian::backports-sloppy'
+      runner.converge 'debian::backports_sloppy'
     end
 
     it 'includes debian::backports recipe' do
@@ -28,7 +28,7 @@ describe 'debian::backports-sloppy' do
         platform: 'debian', version: '7.0',
         step_into: ['debian_repository', 'apt_repository']
       )
-      runner.converge 'debian::backports-sloppy'
+      runner.converge 'debian::backports_sloppy'
     end
 
     it 'warns' do

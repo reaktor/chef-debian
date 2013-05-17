@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: debian
-# Recipe:: backports-sloppy
+# Recipe:: backports_sloppy
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #

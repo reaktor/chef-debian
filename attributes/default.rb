@@ -26,7 +26,7 @@ default['debian']['deb_src']                 = false
 
 # Whether to include the recipes by default recipe
 default['debian']['backports']               = false
-default['debian']['backports-sloppy']        = false
+default['debian']['backports_sloppy']        = false
 default['debian']['security']                = true
 default['debian']['stable_proposed_updates'] = false
 default['debian']['stable_updates']          = true

@@ -6,7 +6,7 @@
       with /debian
     * Should work on most cases, but `node['debian']['backports_mirror']` can
       be used for setting an explicit URI
-- Add `backports-sloppy` recipe for [squeeze-backports-sloppy]
+- Add `backports_sloppy` recipe for [squeeze-backports-sloppy]
   (http://backports.debian.org/Instructions/#index4h2) suite ([GH-8])
 
 # 1.4.0 / 2013-05-14

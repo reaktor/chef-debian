@@ -43,7 +43,7 @@ The other recipes configure apt to use the corresponding Debian repository:
 
   * `backports` - Sets up apt source for [Debian Backports]
     (http://wiki.debian.org/Backports) repository.
-  * `backports-sloppy` - Sets up apt source for [Debian Backports/sloppy]
+  * `backports_sloppy` - Sets up apt source for [Debian Backports/sloppy]
     (http://backports.debian.org/Instructions/#index4h2) repository. Only
     supported on Squeeze. Also includes the `backports` recipe.
   * `security` - Sets up apt source for [Debian Security Updates]
@@ -75,7 +75,7 @@ included by the default recipe:
 Attribute                                   | Default
 --------------------------------------------|--------
 `node['debian']['backports']`               | false
-`node['debian']['backports-sloppy']`        | false
+`node['debian']['backports_sloppy']`        | false
 `node['debian']['security']`                | true
 `node['debian']['stable_proposed_updates']` | false
 `node['debian']['stable_updates']`          | true
