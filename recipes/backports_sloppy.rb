@@ -19,11 +19,11 @@
 # limitations under the License.
 #
 
-include_recipe 'debian::backports'
-
 if node['platform_version'].to_i >= 7
   Chef::Log.warn "#{node['debian']['codename']}-backports-sloppy does not exist yet"
   Chef::Log.warn "Please file an issue if I'm wrong: https://github.com/reaktor/chef-debian/issues"
+  Chef::Log.info "Including `debian::backports` recipe instead"
+  include_recipe 'debian::backports'
 else
   debian_repository "backports-sloppy" do
     uri Chef::Debian::Helpers.backports_mirror(node)

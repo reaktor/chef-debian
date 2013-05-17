@@ -11,10 +11,6 @@ describe 'debian::backports_sloppy' do
       runner.converge 'debian::backports_sloppy'
     end
 
-    it 'includes debian::backports recipe' do
-      chef_run.should include_recipe 'debian::backports'
-    end
-
     it 'configures debian-backports-sloppy repository' do
       chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports-sloppy.list',
         'deb     http://example.com/debian-backports squeeze-backports-sloppy main contrib non-free'
