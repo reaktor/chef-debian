@@ -19,7 +19,7 @@ Thumbs.db
 \#*
 .#*
 *~
-*.sw[a-z]
+.*.sw[a-z]
 *.bak
 REVISION
 TAGS*
@@ -60,6 +60,7 @@ test/*
 features/*
 Guardfile
 Procfile
+.kitchen.yml
 
 # SCM #
 #######
