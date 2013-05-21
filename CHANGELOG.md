@@ -1,5 +1,6 @@
 # 1.5.1 / _Not released yet_
 
+- Use [Emeril](http://fnichol.github.io/emeril/) to help releasing
 
 # 1.5.0 / 2013-05-20
 

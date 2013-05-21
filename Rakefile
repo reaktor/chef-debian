@@ -1,3 +1,4 @@
+require 'emeril/rake'
 require 'foodcritic'
 require 'rspec/core/rake_task'
 require 'tailor/rake_task'
