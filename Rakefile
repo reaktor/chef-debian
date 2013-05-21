@@ -7,13 +7,14 @@ COOKBOOK_NAME = 'debian'
 FIXTURES_PATH = 'vendor/cookbooks'
 
 desc 'Run all tests'
-task :default => [:foodcritic, :knife, :spec, :tailor]
+task :default => [:prepare, :foodcritic, :knife, :spec, :tailor]
 
-task :prepare do
+desc 'Install cookbook dependencies'
+task :berks do
   sh 'berks', 'install', '--path', FIXTURES_PATH, '--except', 'integration'
-  # Run cleanup at exit unless an exception was raised.
-  at_exit { Rake::Task['cleanup'].invoke if $!.nil? }
 end
+
+task :prepare => :berks
 
 task :cleanup do
   rm_rf FIXTURES_PATH
@@ -31,7 +32,6 @@ end
 
 desc 'Run ChefSpec unit tests'
 RSpec::Core::RakeTask.new
-task :spec => :prepare
 
 Tailor::RakeTask.new do |t|
   t.file_set('metadata.rb', 'metadata')
