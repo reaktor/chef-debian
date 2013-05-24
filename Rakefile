@@ -3,22 +3,8 @@ require 'foodcritic'
 require 'rspec/core/rake_task'
 require 'tailor/rake_task'
 
-COOKBOOK_NAME = 'debian'
-FIXTURES_PATH = 'vendor/cookbooks'
-
 desc 'Run all tests'
-task :default => [:prepare, :foodcritic, :knife, :spec, :tailor]
-
-desc 'Install cookbook dependencies'
-task :berks do
-  sh 'berks', 'install', '--path', FIXTURES_PATH, '--except', 'integration'
-end
-
-task :prepare => :berks
-
-task :cleanup do
-  rm_rf FIXTURES_PATH
-end
+task :default => [:foodcritic, :knife, :spec, :tailor]
 
 FoodCritic::Rake::LintTask.new do |t|
   t.options = { :fail_tags => ['any'] }
@@ -44,6 +30,6 @@ Tailor::RakeTask.new do |t|
   end
 
   t.file_set('spec/**/*.rb', 'tests') do |style|
-    style.max_line_length 160, :level => :warn
+    style.max_line_length 120, :level => :warn
   end
 end
