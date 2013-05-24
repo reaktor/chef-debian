@@ -12,5 +12,6 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard-rspec'
   gem 'guard-foodcritic', '>= 1.0.1'
 end
