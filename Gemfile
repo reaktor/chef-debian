@@ -1,6 +1,6 @@
 source 'https://rubygems.org/'
 
-gem 'chef', ENV.fetch('CHEF_VERSION', '>= 10')
+gem 'chef', ENV.fetch('CHEF_VERSION', '~> 11.0')
 gem 'rake'
 
 group :development, :test do
