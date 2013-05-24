@@ -12,3 +12,8 @@ group :development do
   gem 'guard-rspec', '~> 3.0'
   gem 'guard-foodcritic', '>= 1.0.1'
 end
+
+group :integration do
+  gem 'test-kitchen', '>= 1.0.0.alpha.7'
+  gem 'kitchen-vagrant', '>= 0.10.0'
+end
