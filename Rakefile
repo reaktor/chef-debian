@@ -1,7 +1,11 @@
-require 'emeril/rake'
 require 'foodcritic'
 require 'rspec/core/rake_task'
 require 'tailor/rake_task'
+
+# emeril gem is not found on the CI
+begin
+  require 'emeril/rake'
+rescue LoadError; end
 
 desc 'Run all tests'
 task :default => [:foodcritic, :knife, :spec, :tailor]
