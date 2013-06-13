@@ -1,5 +1,4 @@
 /.bundle/
-/.vagrant
 /Berksfile.lock
 /Gemfile.lock
 /vendor/cookbooks/

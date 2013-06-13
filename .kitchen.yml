@@ -1,5 +1,7 @@
 ---
 driver_plugin: vagrant
+driver_config:
+  require_chef_omnibus: true
 
 platforms:
 - name: debian-7.0
@@ -14,6 +16,11 @@ platforms:
 suites:
 - name: default
   run_list:
+<% if !(recipes = ENV['RECIPES']) || recipes.empty? %>
   - recipe[minitest-handler]
   - recipe[debian_test]
-  attributes: {}
+<% else
+     recipes.split(/[ ,]+/).each do |recipe| %>
+  - recipe[debian::<%= recipe %>]
+<%   end
+   end %>
