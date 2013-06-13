@@ -16,11 +16,6 @@ platforms:
 suites:
 - name: default
   run_list:
-<% if !(recipes = ENV['RECIPES']) || recipes.empty? %>
-  - recipe[minitest-handler]
-  - recipe[debian_test]
-<% else
-     recipes.split(/[ ,]+/).each do |recipe| %>
+<% ENV.fetch('RECIPES', 'default').split(/[ ,]+/).each do |recipe| %>
   - recipe[debian::<%= recipe %>]
-<%   end
-   end %>
+<% end %>
