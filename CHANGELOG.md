@@ -1,4 +1,4 @@
-# 1.5.1 / _Not released yet_
+# 1.5.2 / 2012-06-13
 
 - Use [Emeril](http://fnichol.github.io/emeril/) to help releasing
 - Test setup improvements
