@@ -19,3 +19,6 @@ suites:
 <% ENV.fetch('RECIPES', 'default').split(/[ ,]+/).each do |recipe| %>
   - recipe[debian::<%= recipe %>]
 <% end %>
+- name: backports
+  run_list:
+  - recipe[debian::_backports_test]
