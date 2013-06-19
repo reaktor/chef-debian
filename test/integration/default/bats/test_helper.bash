@@ -4,9 +4,9 @@ codename() {
         lsb_release -s -c
     else
         case "$(< /etc/debian_version)" in
-            6.0*) echo 'squeeze';;
-            7.0*) echo 'wheezy';;
-            *)    echo '???';;
+            6.*) echo 'squeeze';;
+            7.*) echo 'wheezy';;
+            *)   echo '???';;
         esac
     fi
 }

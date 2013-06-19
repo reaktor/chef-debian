@@ -1,5 +1,7 @@
 # 1.5.3 / _Unreleased_
 
+- Fix Wheezy version number detection ([GH-10])
+    * Point-releases only have two numbers, latest is 7.1
 - Fix tests on Chef 10
     * Lock down apt cookbook
 
@@ -74,3 +76,4 @@
 [GH-6]:  https://github.com/reaktor/chef-debian/issues/6  "Issue 6"
 [GH-7]:  https://github.com/reaktor/chef-debian/issues/7  "Issue 7"
 [GH-8]:  https://github.com/reaktor/chef-debian/issues/8  "Issue 8"
+[GH-10]: https://github.com/reaktor/chef-debian/issues/10 "Issue 10"
