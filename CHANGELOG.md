@@ -1,5 +1,7 @@
 # 1.5.3 / _Unreleased_
 
+- Fix tests on Chef 10
+    * Lock down apt cookbook
 
 # 1.5.2 / 2012-06-13
 
