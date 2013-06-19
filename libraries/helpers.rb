@@ -30,8 +30,8 @@ class Chef
 
       def self.codename_for_platform_version(version)
         case version
-        when /^6\.0/ then "squeeze"
-        when /^7\.0/ then "wheezy"
+        when /^6\./ then "squeeze"
+        when /^7\./ then "wheezy"
         else "stable"
         end
       end
