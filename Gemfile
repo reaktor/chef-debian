@@ -5,6 +5,7 @@ gem 'chef', ENV.fetch('CHEF_VERSION', '~> 11.0')
 gem 'chefspec', '~> 1.2'
 gem 'foodcritic', '~> 2.0'
 gem 'rake'
+gem 'rspec', '~> 2.11'
 gem 'tailor', '~> 1.2'
 
 group :development do

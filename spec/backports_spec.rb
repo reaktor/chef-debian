@@ -3,116 +3,84 @@ require 'spec_helper'
 describe 'debian::backports' do
   context 'on Squeeze' do
     context 'with default mirrors' do
-      let(:chef_run) do
-        runner = ChefSpec::ChefRunner.new(
-          platform: 'debian', version: '6.0.5',
-          step_into: ['debian_repository', 'apt_repository']
-        )
-        runner.converge 'debian::backports'
+      subject do
+        debian_runner('6.0.5').converge 'debian::backports'
       end
 
-      it 'uses http.debian.net/debian-backports' do
-        chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-          'deb     http://http.debian.net/debian-backports squeeze-backports main contrib non-free'
-      end
-    end
-
-    context 'with specified backports mirror' do
-      let(:chef_run) do
-        runner = ChefSpec::ChefRunner.new(
-          platform: 'debian', version: '6.0.5',
-          step_into: ['debian_repository', 'apt_repository']
-        )
-        runner.node.set['debian']['backports_mirror'] = 'http://example.com/backports-mirror'
-        runner.converge 'debian::backports'
-      end
-
-      it 'uses it' do
-        chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-          'deb     http://example.com/backports-mirror squeeze-backports main contrib non-free'
-      end
+      it { should add_backports_source 'http://http.debian.net/debian-backports' }
     end
 
     context 'with specified default mirror' do
       context 'ending with /debian' do
         let(:chef_run) do
-          runner = ChefSpec::ChefRunner.new(
-            platform: 'debian', version: '6.0.5',
-            step_into: ['debian_repository', 'apt_repository']
-          )
-          runner.node.set['debian']['mirror'] = 'http://example.com/debian'
-          runner.converge 'debian::backports'
+          debian_runner('6.0.5') do |node|
+            node.set['debian']['mirror'] = 'http://example.com/debian'
+          end.converge 'debian::backports'
         end
 
         it 'uses it with /debian-backpors suffix' do
-          chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-            'deb     http://example.com/debian-backports squeeze-backports main contrib non-free'
+          expect(chef_run).to add_backports_source 'http://example.com/debian-backports'
         end
       end
 
       context 'not ending with /debian' do
         let(:chef_run) do
-          runner = ChefSpec::ChefRunner.new(
-            platform: 'debian', version: '6.0.5',
-            step_into: ['debian_repository', 'apt_repository']
-          )
-          runner.node.set['debian']['mirror'] = 'http://example.com/debian-mirror'
-          runner.converge 'debian::backports'
+          debian_runner('6.0.5') do |node|
+            node.set['debian']['mirror'] = 'http://example.com/debian-mirror'
+          end.converge 'debian::backports'
         end
 
         it 'uses backports.debian.org' do
-          chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-            'deb     http://backports.debian.org/debian-backports squeeze-backports main contrib non-free'
+          expect(chef_run).to add_backports_source 'http://backports.debian.org/debian-backports'
         end
+      end
+    end
+
+    context 'with specified backports mirror' do
+      let(:chef_run) do
+        debian_runner('6.0.5') do |node|
+          node.set['debian']['backports_mirror'] = 'http://example.com/backports-mirror'
+          node.set['debian']['mirror'] = 'http://example.com/default-mirror'
+        end.converge 'debian::backports'
+      end
+
+      it 'uses it' do
+        expect(chef_run).to add_backports_source 'http://example.com/backports-mirror'
       end
     end
   end
 
   context 'on Wheezy' do
     context 'with default mirrors' do
-      let(:chef_run) do
-        runner = ChefSpec::ChefRunner.new(
-          platform: 'debian', version: '7.0',
-          step_into: ['debian_repository', 'apt_repository']
-        )
-        runner.converge 'debian::backports'
+      subject do
+        debian_runner('7.0').converge 'debian::backports'
       end
 
-      it 'uses http.debian.net/debian' do
-        chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-          'deb     http://http.debian.net/debian wheezy-backports main contrib non-free'
+      it { should add_backports_source 'http://http.debian.net/debian' }
+    end
+
+    context 'with specified default mirror' do
+      let(:chef_run) do
+        debian_runner('7.0') do |node|
+          node.set['debian']['mirror'] = 'http://example.com/debian-mirror'
+        end.converge 'debian::backports'
+      end
+
+      it 'uses it' do
+        expect(chef_run).to add_backports_source 'http://example.com/debian-mirror'
       end
     end
 
     context 'with specified backports mirror' do
       let(:chef_run) do
-        runner = ChefSpec::ChefRunner.new(
-          platform: 'debian', version: '7.0',
-          step_into: ['debian_repository', 'apt_repository']
-        )
-        runner.node.set['debian']['backports_mirror'] = 'http://example.com/backports-mirror'
-        runner.converge 'debian::backports'
+        debian_runner('7.0') do |node|
+          node.set['debian']['backports_mirror'] = 'http://example.com/backports-mirror'
+          node.set['debian']['mirror'] = 'http://example.com/default-mirror'
+        end.converge 'debian::backports'
       end
 
       it 'uses it' do
-        chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-          'deb     http://example.com/backports-mirror wheezy-backports main contrib non-free'
-      end
-    end
-
-    context 'with specified default mirror' do
-      let(:chef_run) do
-        runner = ChefSpec::ChefRunner.new(
-          platform: 'debian', version: '7.0',
-          step_into: ['debian_repository', 'apt_repository']
-        )
-        runner.node.set['debian']['mirror'] = 'http://example.com/debian-mirror'
-        runner.converge 'debian::backports'
-      end
-
-      it 'uses it' do
-        chef_run.should create_file_with_content '/etc/apt/sources.list.d/backports.list',
-          'deb     http://example.com/debian-mirror wheezy-backports main contrib non-free'
+        expect(chef_run).to add_backports_source 'http://example.com/backports-mirror'
       end
     end
   end
