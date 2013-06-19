@@ -48,7 +48,7 @@ describe 'debian::default' do
         let(:chef_run) do
           ChefSpec::ChefRunner.new(platform: 'debian', version: '7.0') do |node|
             node.automatic_attrs['lsb'] = {}
-            node.automatic_attrs['platform_version'] = '7.0.1'
+            node.automatic_attrs['platform_version'] = '7.1'
           end.converge 'debian::default'
         end
 
