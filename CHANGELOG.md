@@ -1,4 +1,4 @@
-# 1.5.3 / _Unreleased_
+# 1.5.4 / 2012-06-20
 
 - Fix Wheezy version number detection ([GH-10])
     * Point-releases only have two numbers, latest is 7.1
