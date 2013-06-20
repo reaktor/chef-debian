@@ -4,6 +4,7 @@
     * Point-releases only have two numbers, latest is 7.1
 - Fix tests on Chef 10
     * Lock down apt cookbook
+- Refactor ChefSpec tests and add unit tests for library methods ([GH-9])
 
 # 1.5.2 / 2012-06-13
 
@@ -76,4 +77,5 @@
 [GH-6]:  https://github.com/reaktor/chef-debian/issues/6  "Issue 6"
 [GH-7]:  https://github.com/reaktor/chef-debian/issues/7  "Issue 7"
 [GH-8]:  https://github.com/reaktor/chef-debian/issues/8  "Issue 8"
+[GH-9]:  https://github.com/reaktor/chef-debian/issues/9  "Issue 9"
 [GH-10]: https://github.com/reaktor/chef-debian/issues/10 "Issue 10"
