@@ -11,6 +11,7 @@ gem 'tailor', '~> 1.2'
 group :development do
   gem 'emeril', '~> 0.5'
   gem 'guard-rspec', '~> 3.0'
+  gem 'guard-foodcritic', '>= 1.0.2'
 end
 
 group :integration do
