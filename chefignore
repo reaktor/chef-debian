@@ -61,7 +61,6 @@ features/*
 Guardfile
 Procfile
 .kitchen.yml
-vendor/*
 
 # SCM #
 #######
@@ -81,7 +80,6 @@ vendor/*
 Berksfile
 Berksfile.lock
 tmp
-*/vendor
 
 # Cookbooks #
 #############

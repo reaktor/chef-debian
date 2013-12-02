@@ -5,8 +5,8 @@ RSpec::Matchers.define :add_apt_source do |expected, d_file = nil|
   file << ".d/#{d_file}" if d_file
 
   match do |actual|
-    expect(actual).to create_file_with_content file,
-      %r{^\s*#{escape_ignoring_spaces(expected)}\s*$}
+    expect(actual).to render_file(file).
+      with_content(%r{^\s*#{escape_ignoring_spaces(expected)}\s*$})
   end
 
   failure_message_for_should do |actual|

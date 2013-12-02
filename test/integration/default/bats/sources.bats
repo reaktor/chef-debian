@@ -8,6 +8,6 @@ load test_helper
 }
 
 @test "apt-get update succeeds" {
-    run apt-get update
+    run sudo apt-get update
     [ $status -eq 0 ]
 }
