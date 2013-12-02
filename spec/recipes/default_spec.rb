@@ -9,7 +9,7 @@ describe 'debian::default' do
     end
 
     it { should include_recipe 'apt' }
-    it { should execute_command 'apt-get update' }
+    xit { should run_execute 'apt-get update' }
     it { should add_apt_source 'deb http://http.debian.net/debian cheese main contrib non-free' }
     it { should include_recipe 'debian::security' }
     it { should_not include_recipe 'debian::testing' }
@@ -57,10 +57,9 @@ describe 'debian::default' do
 
   context 'on non-Debian' do
     subject do
-      ChefSpec::ChefRunner.new(
+      ChefSpec::Runner.new(
         platform: 'ubuntu', version: '12.04',
-        log_level: :error,
-        cookbook_path: 'vendor/cookbooks'
+        log_level: :error
       ).converge 'debian::default'
     end
 
