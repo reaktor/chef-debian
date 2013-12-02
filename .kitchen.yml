@@ -1,15 +1,17 @@
 ---
-driver_plugin: vagrant
-driver_config:
-  require_chef_omnibus: true
+driver: vagrant
+
+provisioner:
+  name: chef_zero
+  require_chef_omnibus: latest
 
 platforms:
 - name: debian-7
-  driver_config:
+  driver:
     box: debian-7
     box_url: https://reaktor-vm.s3.amazonaws.com/vagrant/debian-7.0.0_chef-11.4.4.box
 - name: debian-6.0
-  driver_config:
+  driver:
     box: debian-6.0
     box_url: https://reaktor-vm.s3.amazonaws.com/vagrant/debian-6.0.7_chef-11.4.4.box
 
