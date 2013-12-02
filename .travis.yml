@@ -4,9 +4,9 @@ bundler_args: --without=development:integration
 
 rvm:
   - 1.9.3
+  - 2.0.0
 env:
   - CHEF_VERSION="~> 11"
-  - CHEF_VERSION="~> 10"
 
 notifications:
   email: cookbooks@reaktor.fi
