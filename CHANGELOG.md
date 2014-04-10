@@ -1,7 +1,7 @@
 # 1.5.5 / _Not released yet_
+- Now it's possible to add a security mirror using security_mirror parameter.
 
-
-# 1.5.4 / 2012-06-20
+# 1.5.4 / 2013-06-20
 
 - Fix Wheezy version number detection ([GH-10])
     * Point-releases only have two numbers, latest is 7.1
@@ -9,7 +9,7 @@
     * Lock down apt cookbook
 - Refactor ChefSpec tests and add unit tests for library methods ([GH-9])
 
-# 1.5.2 / 2012-06-13
+# 1.5.2 / 2013-06-13
 
 - Use [Emeril](http://fnichol.github.io/emeril/) to help releasing
 - Test setup improvements
