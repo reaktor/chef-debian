@@ -54,6 +54,15 @@ class Chef
           "http://backports.debian.org/debian-backports"
         end
       end
+
+      def self.security_mirror(node)
+        if node['debian']['security_mirror']
+          node['debian']['security_mirror']
+        else
+          "http://security.debian.org/debian-security"
+        end
+      end
+
     end
   end
 end
