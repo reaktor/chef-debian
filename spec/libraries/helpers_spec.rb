@@ -40,6 +40,31 @@ describe Chef::Debian::Helpers do
     end
   end
 
+  describe 'security_mirror' do
+    let(:default_mirror) {}
+    let(:security_mirror) {}
+    let(:node) do
+      {
+        'debian' => {
+          'mirror'           => default_mirror,
+          'security_mirror' => security_mirror
+        }
+      }
+    end
+    subject { described_class.security_mirror(node) }
+
+    context 'with specified security mirror' do
+      let(:security_mirror) { 'http://foo/' }
+
+      it { should eq security_mirror }
+    end
+
+    context 'without specified security mirror' do
+      it { should eq "http://security.debian.org/debian-security" }
+    end
+
+  end
+
   describe '.backports_mirror' do
     let(:default_mirror) {}
     let(:backports_mirror) {}

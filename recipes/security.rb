@@ -20,6 +20,6 @@
 #
 
 debian_repository "security" do
-  uri "http://security.debian.org/debian-security"
+  uri Chef::Debian::Helpers.security_mirror(node)
   distribution "#{node['debian']['codename']}/updates"
 end
