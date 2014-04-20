@@ -1,3 +1,6 @@
+# 1.6.1 / _Not released yet_
+
+
 # 1.6.0 / 2014-04-20
 
 Features:
