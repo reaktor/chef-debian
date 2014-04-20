@@ -1,5 +1,8 @@
-# 1.5.5 / _Not released yet_
-- Now it's possible to add a security mirror using security_mirror parameter.
+# 1.6.0 / 2014-04-20
+
+Features:
+
+- Allow specifying the security mirror with `security_mirror` attribute ([GH-11][])
 
 # 1.5.4 / 2013-06-20
 
@@ -82,3 +85,4 @@
 [GH-8]:  https://github.com/reaktor/chef-debian/issues/8  "Issue 8"
 [GH-9]:  https://github.com/reaktor/chef-debian/issues/9  "Issue 9"
 [GH-10]: https://github.com/reaktor/chef-debian/issues/10 "Issue 10"
+[GH-11]: https://github.com/reaktor/chef-debian/issues/11 "Issue 11"
