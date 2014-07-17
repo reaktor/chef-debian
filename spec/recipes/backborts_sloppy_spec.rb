@@ -21,8 +21,8 @@ describe 'debian::backports_sloppy' do
     end
 
     it 'warns' do
-      Chef::Log.stub(:warn)
-      Chef::Log.should_receive(:warn).with('wheezy-backports-sloppy does not exist yet')
+      allow(Chef::Log).to receive(:warn)
+      expect(Chef::Log).to receive(:warn).with('wheezy-backports-sloppy does not exist yet')
       chef_run
     end
     it 'includes debian::backports recipe' do

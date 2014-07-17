@@ -64,7 +64,8 @@ describe 'debian::default' do
     end
 
     it 'warns' do
-      Chef::Log.should_receive(:warn).with('recipe[debian::default] included in non-Debian platform. Skipping.')
+      expect(Chef::Log).to receive(:warn).
+        with('recipe[debian::default] included in non-Debian platform. Skipping.')
       should be
     end
     it { should_not include_recipe 'apt' }

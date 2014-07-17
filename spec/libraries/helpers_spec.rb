@@ -18,7 +18,8 @@ describe Chef::Debian::Helpers do
       let(:node) { Hash['platform_version' => platform_version] }
 
       it 'should use .codename_for_platform_version' do
-        described_class.should_receive(:codename_for_platform_version).with(platform_version).and_return(codename)
+        expect(described_class).to receive(:codename_for_platform_version).
+          with(platform_version).and_return(codename)
         expect(described_class.codename(node)).to eq codename
       end
     end
