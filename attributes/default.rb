@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2013, Reaktor Innovations Oy
+# Copyright 2012-2014, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -29,6 +29,7 @@ default['debian']['deb_src']                 = false
 default['debian']['backports']               = false
 default['debian']['backports_sloppy']        = false
 default['debian']['security']                = true
+default['debian']['stable_lts']              = (node['platform_version'].to_i < 7)
 default['debian']['stable_proposed_updates'] = false
 default['debian']['stable_updates']          = true
 default['debian']['testing']                 = false

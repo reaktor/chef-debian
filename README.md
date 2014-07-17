@@ -49,6 +49,8 @@ The other recipes configure apt to use the corresponding Debian repository:
   * `security` - Sets up apt source for [Debian Security Updates]
     (http://www.debian.org/security/) repository.
   * `sid` - Alias for `unstable` recipe.
+  * `stable_lts` - Sets up apt source for [Debian Long Term Support]
+    (https://wiki.debian.org/LTS) repository.
   * `stable_proposed_updates` - Sets up apt source for [Debian
     stable-proposed-updates](http://wiki.debian.org/StableProposedUpdates)
     repository and includes `stable_updates` recipe.
@@ -78,6 +80,7 @@ Attribute                                   | Default
 `node['debian']['backports']`               | false
 `node['debian']['backports_sloppy']`        | false
 `node['debian']['security']`                | true
+`node['debian']['stable_lts']`              | true on Squeeze, false otherwise
 `node['debian']['stable_proposed_updates']` | false
 `node['debian']['stable_updates']`          | true
 `node['debian']['testing']`                 | false
@@ -164,6 +167,6 @@ License and Author
 
 Author:: Teemu Matilainen <<teemu.matilainen@reaktor.fi>>
 
-Copyright © 2011-2013, [Reaktor Innovations Oy](http://reaktor.fi/en)
+Copyright © 2011-2014, [Reaktor Innovations Oy](http://reaktor.fi/)
 
 Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE).

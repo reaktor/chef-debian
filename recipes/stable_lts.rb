@@ -1,10 +1,10 @@
 #
 # Cookbook Name:: debian
-# Recipe:: default
+# Recipe:: stable_lts
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2011-2014, Reaktor Innovations Oy
+# Copyright 2014, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,28 +19,11 @@
 # limitations under the License.
 #
 
-unless node['platform'] == 'debian'
-  Chef::Log.warn 'recipe[debian::default] included in non-Debian platform. Skipping.'
-  return
-end
-
-template '/etc/apt/sources.list' do
-  owner    'root'
-  group    'root'
-  mode     00644
-  notifies :run, 'execute[apt-get update]', :immediately
-end
-
-include_recipe 'apt'
-
-%w[
-  backports
-  backports_sloppy
-  security
-  stable_lts
-  stable_proposed_updates
-  stable_updates
-  testing unstable
-].each do |repo|
-  include_recipe "debian::#{repo}" if node['debian'][repo]
+if node['platform_version'].to_i >= 7
+  Chef::Log.info "#{node['debian']['codename']}-lts does not exist yet"
+  Chef::Log.info "Please file an issue if I'm wrong: https://github.com/reaktor/chef-debian/issues"
+else
+  debian_repository "stable-lts" do
+    distribution "#{node['debian']['codename']}-lts"
+  end
 end

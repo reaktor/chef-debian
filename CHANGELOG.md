@@ -1,5 +1,9 @@
 # 1.6.1 / _Not released yet_
 
+Features:
+
+- Add `stable_lts` recipe for the [Long Term Support](https://wiki.debian.org/LTS)
+  repository. Enabled by default on Squeeze. ([GH-14][])
 
 # 1.6.0 / 2014-04-20
 
@@ -89,3 +93,4 @@ Features:
 [GH-9]:  https://github.com/reaktor/chef-debian/issues/9  "Issue 9"
 [GH-10]: https://github.com/reaktor/chef-debian/issues/10 "Issue 10"
 [GH-11]: https://github.com/reaktor/chef-debian/issues/11 "Issue 11"
+[GH-14]: https://github.com/reaktor/chef-debian/issues/14 "Issue 14"

@@ -49,9 +49,25 @@ describe 'debian::default' do
         end.converge 'debian::default'
       end
 
-      it { should add_apt_source 'deb http://example.com/debian-mirror cheese resistor diode'; subject }
+      it { should add_apt_source 'deb http://example.com/debian-mirror cheese resistor diode' }
       it { should add_apt_source 'deb-src http://example.com/debian-mirror cheese resistor diode' }
       it { should include_recipe 'debian::backports' }
+    end
+
+    context 'Wheezy' do
+      subject do
+        debian_runner('7.0').converge('debian::default')
+      end
+
+      it { should_not include_recipe 'debian::stable_lts' }
+    end
+
+    context 'Squeeze' do
+      subject do
+        debian_runner('6.0.5').converge('debian::default')
+      end
+
+      it { should include_recipe 'debian::stable_lts' }
     end
   end
 
