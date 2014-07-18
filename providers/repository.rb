@@ -19,6 +19,8 @@
 # limitations under the License.
 #
 
+use_inline_resources if defined?(use_inline_resources)
+
 def whyrun_supported?
   true
 end
@@ -40,24 +42,20 @@ action :remove do
 end
 
 def repository_resource(exec_action)
-  r = apt_repository new_resource.repo_name do
+  apt_repository new_resource.repo_name do
     uri          new_resource.uri
     distribution new_resource.distribution
     components   new_resource.components
     deb_src      new_resource.deb_src
-    action       :nothing
+    action       exec_action
   end
-  r.run_action(exec_action)
-  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end
 
 def preferences_resourse(exec_action)
-  r = apt_preference new_resource.repo_name do
+  apt_preference new_resource.repo_name do
     package_name '*'
     pin          "release a=#{new_resource.distribution}, o=Debian"
     pin_priority new_resource.pin_priority.to_s
-    action       :nothing
+    action       exec_action
   end
-  r.run_action(exec_action)
-  new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end

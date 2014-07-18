@@ -1,9 +1,18 @@
 # 1.6.1 / _Not released yet_
 
+Deprecations:
+
+- Notifications of the `debian_repository` resource require Chef 11 or newer.
+
 Features:
 
 - Add `stable_lts` recipe for the [Long Term Support](https://wiki.debian.org/LTS)
   repository. Enabled by default on Squeeze. ([GH-14][])
+
+Improvements:
+
+- Use `use_inline_resources` in the provider to ensure correct notification
+  behavior.
 
 Bug fixes:
 
