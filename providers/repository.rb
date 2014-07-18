@@ -54,7 +54,7 @@ end
 def preferences_resourse(exec_action)
   r = apt_preference new_resource.repo_name do
     package_name '*'
-    pin          "a=#{new_resource.distribution}, o=Debian"
+    pin          "release a=#{new_resource.distribution}, o=Debian"
     pin_priority new_resource.pin_priority.to_s
     action       :nothing
   end

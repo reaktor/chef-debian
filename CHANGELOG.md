@@ -5,6 +5,10 @@ Features:
 - Add `stable_lts` recipe for the [Long Term Support](https://wiki.debian.org/LTS)
   repository. Enabled by default on Squeeze. ([GH-14][])
 
+Bug fixes:
+
+- Fix `pin` line in apt preferences
+
 # 1.6.0 / 2014-04-20
 
 Features:
