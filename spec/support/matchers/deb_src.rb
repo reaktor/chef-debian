@@ -1,12 +1,12 @@
 require 'rspec/expectations'
 
 RSpec::Matchers.define :add_apt_source do |expected, d_file = nil|
-  file = "/etc/apt/sources.list"
+  file = '/etc/apt/sources.list'
   file << ".d/#{d_file}" if d_file
 
   match do |actual|
-    expect(actual).to render_file(file).
-      with_content(%r{^\s*#{escape_ignoring_spaces(expected)}\s*$})
+    expect(actual).to render_file(file)
+      .with_content(/^\s*#{escape_ignoring_spaces(expected)}\s*$/)
   end
 
   failure_message do |actual|
@@ -24,7 +24,7 @@ end
 
 RSpec::Matchers.define :add_backports_source do |expected_mirror|
   match do |actual|
-    expect(actual).to add_apt_source(src_line(actual), "backports.list")
+    expect(actual).to add_apt_source(src_line(actual), 'backports.list')
   end
 
   define_method :src_line do |actual|

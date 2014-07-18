@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2013, Reaktor Innovations Oy
+# Copyright 2013-2014, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -22,10 +22,10 @@
 if node['platform_version'].to_i >= 7
   Chef::Log.warn "#{node['debian']['codename']}-backports-sloppy does not exist yet"
   Chef::Log.warn "Please file an issue if I'm wrong: https://github.com/reaktor/chef-debian/issues"
-  Chef::Log.info "Including `debian::backports` recipe instead"
+  Chef::Log.info 'Including `debian::backports` recipe instead'
   include_recipe 'debian::backports'
 else
-  debian_repository "backports-sloppy" do
+  debian_repository 'backports-sloppy' do
     uri Chef::Debian::Helpers.backports_mirror(node)
     distribution "#{node['debian']['codename']}-backports-sloppy"
   end

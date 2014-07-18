@@ -1,0 +1,27 @@
+LineLength:
+  Max: 100
+
+MethodLength:
+  Max: 12
+
+Encoding:
+  Enabled: false
+
+AsciiComments:
+  Enabled: false
+
+TrailingComma:
+  Enabled: false
+
+SingleSpaceBeforeFirstArg:
+  Enabled: false
+
+NegatedIf:
+  Enabled: false
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%q': '{}'
+    '%Q': '{}'
+    '%w': '[]'
+    '%W': '[]'

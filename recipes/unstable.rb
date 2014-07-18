@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2013, Reaktor Innovations Oy
+# Copyright 2012-2014, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,6 +19,6 @@
 # limitations under the License.
 #
 
-debian_repository "unstable" do
+debian_repository 'unstable' do
   pin_priority 40
 end

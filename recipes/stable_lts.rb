@@ -23,7 +23,7 @@ if node['platform_version'].to_i >= 7
   Chef::Log.info "#{node['debian']['codename']}-lts does not exist yet"
   Chef::Log.info "Please file an issue if I'm wrong: https://github.com/reaktor/chef-debian/issues"
 else
-  debian_repository "stable-lts" do
+  debian_repository 'stable-lts' do
     distribution "#{node['debian']['codename']}-lts"
   end
 end

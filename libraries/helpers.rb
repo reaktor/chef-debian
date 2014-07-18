@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2013, Reaktor Innovations Oy
+# Copyright 2012-2014, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,8 +21,8 @@
 
 class Chef
   module Debian
+    # Helper methods for the Debian Cookbook
     module Helpers
-
       def self.codename(node)
         (node['lsb'] && node['lsb']['codename']) ||
           codename_for_platform_version(node['platform_version'])
@@ -30,9 +30,9 @@ class Chef
 
       def self.codename_for_platform_version(version)
         case version
-        when /^6\./ then "squeeze"
-        when /^7\./ then "wheezy"
-        else "stable"
+        when /^6\./ then 'squeeze'
+        when /^7\./ then 'wheezy'
+        else 'stable'
         end
       end
 
@@ -48,10 +48,10 @@ class Chef
       end
 
       def self.pre_wheezy_backports_mirror(node)
-        if node['debian']['mirror'] =~ %r{/debian$}
-          node['debian']['mirror'].sub(%r{/debian$}, "/debian-backports")
+        if node['debian']['mirror'] =~ /\/debian$/
+          node['debian']['mirror'].sub(/\/debian$/, '/debian-backports')
         else
-          "http://backports.debian.org/debian-backports"
+          'http://backports.debian.org/debian-backports'
         end
       end
 
@@ -59,10 +59,9 @@ class Chef
         if node['debian']['security_mirror']
           node['debian']['security_mirror']
         else
-          "http://security.debian.org/debian-security"
+          'http://security.debian.org/debian-security'
         end
       end
-
     end
   end
 end

@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-default['debian']['mirror']                  = "http://http.debian.net/debian"
+default['debian']['mirror']                  = 'http://http.debian.net/debian'
 default['debian']['backports_mirror']        = nil
 default['debian']['security_mirror']         = nil
 default['debian']['components']              = %w[main contrib non-free]

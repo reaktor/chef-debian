@@ -2,6 +2,6 @@
 def debian_runner(version, &block)
   ChefSpec::Runner.new(
     platform: 'debian', version: version,
-    step_into: ['debian_repository', 'apt_repository'],
+    step_into: %w[debian_repository apt_repository],
     &block)
 end

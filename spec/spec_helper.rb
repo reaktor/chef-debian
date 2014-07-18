@@ -9,7 +9,7 @@ cookbook_root = spec_root.parent
 Dir["#{spec_root}/support/**/*.rb"].each { |f| require f }
 
 # Add cookbook's libraries/ to the load path
-$:.unshift(cookbook_root.join('libraries'))
+$LOAD_PATH.unshift(cookbook_root.join('libraries'))
 
 RSpec.configure do |config|
   config.expect_with :rspec do |c|

@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2013, Reaktor Innovations Oy
+# Copyright 2012-2014, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -47,17 +47,17 @@ def repository_resource(exec_action)
     deb_src      new_resource.deb_src
     action       :nothing
   end
-  r.run_action exec_action
+  r.run_action(exec_action)
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end
 
 def preferences_resourse(exec_action)
   r = apt_preference new_resource.repo_name do
-    package_name "*"
+    package_name '*'
     pin          "a=#{new_resource.distribution}, o=Debian"
     pin_priority new_resource.pin_priority.to_s
     action       :nothing
   end
-  r.run_action exec_action
+  r.run_action(exec_action)
   new_resource.updated_by_last_action(true) if r.updated_by_last_action?
 end

@@ -5,7 +5,7 @@ describe 'debian::backports_sloppy' do
     let(:chef_run) do
       debian_runner('6.0.5') do |node|
         node.set['debian']['mirror'] = 'http://example.com/debian'
-      end.converge 'debian::backports_sloppy'
+      end.converge('debian::backports_sloppy')
     end
 
     it 'configures debian-backports-sloppy repository' do
@@ -17,7 +17,7 @@ describe 'debian::backports_sloppy' do
 
   context 'on Wheezy' do
     let(:chef_run) do
-      debian_runner('7.0').converge 'debian::backports_sloppy'
+      debian_runner('7.0').converge('debian::backports_sloppy')
     end
 
     it 'warns' do
@@ -26,10 +26,10 @@ describe 'debian::backports_sloppy' do
       chef_run
     end
     it 'includes debian::backports recipe' do
-      expect(chef_run).to include_recipe 'debian::backports'
+      expect(chef_run).to include_recipe('debian::backports')
     end
     it 'does not configure backports-sloppy repository' do
-      expect(chef_run).to_not create_file '/etc/apt/sources.list.d/backports-sloppy.list'
+      expect(chef_run).to_not create_file('/etc/apt/sources.list.d/backports-sloppy.list')
     end
   end
 end

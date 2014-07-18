@@ -9,7 +9,7 @@ describe Chef::Debian::Helpers do
       let(:node) { Hash['lsb' => { 'codename' => lsb_codename }, 'platform_version' => '5.0.1'] }
       subject { described_class.codename(node) }
 
-      it { should eq lsb_codename }
+      it { should eq(lsb_codename) }
     end
 
     context 'without lsb attributes' do
@@ -18,9 +18,9 @@ describe Chef::Debian::Helpers do
       let(:node) { Hash['platform_version' => platform_version] }
 
       it 'should use .codename_for_platform_version' do
-        expect(described_class).to receive(:codename_for_platform_version).
-          with(platform_version).and_return(codename)
-        expect(described_class.codename(node)).to eq codename
+        expect(described_class).to receive(:codename_for_platform_version)
+          .with(platform_version).and_return(codename)
+        expect(described_class.codename(node)).to eq(codename)
       end
     end
   end
@@ -36,7 +36,7 @@ describe Chef::Debian::Helpers do
     versions.each do |version, codename|
       context "with #{version}" do
         subject { described_class.codename_for_platform_version(version) }
-        it { should eq codename }
+        it { should eq(codename) }
       end
     end
   end
@@ -47,7 +47,7 @@ describe Chef::Debian::Helpers do
     let(:node) do
       {
         'debian' => {
-          'mirror'           => default_mirror,
+          'mirror'          => default_mirror,
           'security_mirror' => security_mirror
         }
       }
@@ -57,11 +57,11 @@ describe Chef::Debian::Helpers do
     context 'with specified security mirror' do
       let(:security_mirror) { 'http://foo/' }
 
-      it { should eq security_mirror }
+      it { should eq(security_mirror) }
     end
 
     context 'without specified security mirror' do
-      it { should eq "http://security.debian.org/debian-security" }
+      it { should eq('http://security.debian.org/debian-security') }
     end
 
   end
@@ -84,7 +84,7 @@ describe Chef::Debian::Helpers do
     context 'with specified backports mirror' do
       let(:backports_mirror) { 'http://foo/' }
 
-      it { should eq backports_mirror }
+      it { should eq(backports_mirror) }
     end
 
     context 'without specified backports mirror' do
@@ -100,12 +100,12 @@ describe Chef::Debian::Helpers do
 
         context 'with default mirror ending with /debian' do
           let(:default_mirror) { 'http://mirror/debian' }
-          it { should eq "#{default_mirror}-backports" }
+          it { should eq("#{default_mirror}-backports") }
         end
 
         context 'with default mirror not ending with /debian' do
           let(:default_mirror) { 'http://mirror/custom' }
-          it { should eq 'http://backports.debian.org/debian-backports' }
+          it { should eq('http://backports.debian.org/debian-backports') }
         end
       end
     end
