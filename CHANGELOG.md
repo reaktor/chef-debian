@@ -1,4 +1,4 @@
-# 1.6.1 / _Not released yet_
+# 1.7.0 / 2014-08-13
 
 Deprecations:
 
