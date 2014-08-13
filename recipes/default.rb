@@ -28,7 +28,7 @@ template '/etc/apt/sources.list' do
   owner    'root'
   group    'root'
   mode     00644
-  notifies :run, 'execute[apt-get update]', :immediately
+  notifies :run, 'execute[apt-get-update]', :immediately
 end
 
 include_recipe 'apt'
