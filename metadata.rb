@@ -7,4 +7,4 @@ version          '1.6.1'
 
 supports         'debian'
 
-depends          'apt', '>= 1.6.0'
+depends          'apt', '< 2.5.0'

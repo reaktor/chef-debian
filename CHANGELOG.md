@@ -13,6 +13,8 @@ Improvements:
 
 - Use `use_inline_resources` in the provider to ensure correct notification
   behavior.
+- Lock down apt cookbook requirement to `< 2.5.0` as it removed/renamed the
+  `execute[apt-get update]` resource. ([GH-15][])
 
 Bug fixes:
 
@@ -107,3 +109,4 @@ Features:
 [GH-10]: https://github.com/reaktor/chef-debian/issues/10 "Issue 10"
 [GH-11]: https://github.com/reaktor/chef-debian/issues/11 "Issue 11"
 [GH-14]: https://github.com/reaktor/chef-debian/issues/14 "Issue 14"
+[GH-15]: https://github.com/reaktor/chef-debian/issues/15 "Issue 15"
