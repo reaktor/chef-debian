@@ -7,4 +7,4 @@ version          '1.7.1'
 
 supports         'debian'
 
-depends          'apt', '< 2.5.0'
+depends          'apt', '< 3.0'

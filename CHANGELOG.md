@@ -1,5 +1,10 @@
 # 1.7.1 / _Not released yet_
 
+Improvements:
+
+- Loosen the apt cookbook requirement to accept all 2.x versions, as v2.5.2
+  fixes [GH-15][]. So apt cookbook versions 2.5.0 and 2.5.1 are broken, earlier
+  and later ones should work fine.
 
 # 1.7.0 / 2014-08-13
 

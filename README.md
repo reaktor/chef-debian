@@ -34,7 +34,7 @@ Notifications of the `debian_repository` resource require Chef 11 or newer.
 Otherwise the cookbook should also work with Chef 10.
 
 Requires [apt](https://supermarket.getchef.com/cookbooks/apt) community
-cookbook version 1.6.0 - 2.4.x.
+cookbook version 1.6 - 2.x.
 
 Recipes
 -------
