@@ -1,4 +1,4 @@
-# 1.7.1 / _Not released yet_
+# 1.7.2 / 2014-08-22
 
 Improvements:
 
