@@ -1,6 +1,6 @@
 language: ruby
 
-bundler_args: --without=development:integration
+bundler_args: --without=development:integration --jobs=3 --retry=3
 
 rvm:
   - 2.0.0
