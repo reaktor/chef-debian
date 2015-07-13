@@ -1,7 +1,7 @@
 source 'https://rubygems.org/'
 
 gem 'berkshelf', '~> 3.0'
-gem 'chef', ENV.fetch('CHEF_VERSION', '~> 11.0')
+gem 'chef', ENV.fetch('CHEF_VERSION', '~> 12.0')
 gem 'chefspec', '~> 4.0'
 gem 'foodcritic', '~> 4.0'
 gem 'rake'
