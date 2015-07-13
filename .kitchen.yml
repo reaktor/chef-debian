@@ -1,7 +1,6 @@
 ---
 driver:
   name: docker
-  socket: <%= ENV.fetch('DOCKER_HOST', 'unix:///var/run/docker.sock') %>
 
 provisioner:
   name: chef_zero
