@@ -1,5 +1,8 @@
 # 1.7.3 / _Not released yet_
 
+Improvements:
+
+- Fix compatibility with apt cookbook 2.7.0 and newer ([GH-16][]) using `glob` for `apt_preference`. Requires apt cookbook 1.9.0 or later.
 
 # 1.7.2 / 2014-08-22
 
@@ -121,3 +124,4 @@ Features:
 [GH-11]: https://github.com/reaktor/chef-debian/issues/11 "Issue 11"
 [GH-14]: https://github.com/reaktor/chef-debian/issues/14 "Issue 14"
 [GH-15]: https://github.com/reaktor/chef-debian/issues/15 "Issue 15"
+[GH-16]: https://github.com/reaktor/chef-debian/issues/16 "Issue 16"

@@ -33,8 +33,9 @@ Tested on Debian 6.0 Squeeze and Debian 7 Wheezy.
 Notifications of the `debian_repository` resource require Chef 11 or newer.
 Otherwise the cookbook should also work with Chef 10.
 
-Requires [apt](https://supermarket.getchef.com/cookbooks/apt) community
-cookbook version 1.6 - 2.x.
+Requires [apt](https://supermarket.chef.io/cookbooks/apt) community cookbook
+version 1.9 - 2.x (note also the [apt cookbook
+requirements](https://github.com/opscode-cookbooks/apt#requirements)).
 
 Recipes
 -------
@@ -171,6 +172,6 @@ License and Author
 
 Author:: Teemu Matilainen <<teemu.matilainen@reaktor.fi>>
 
-Copyright © 2011-2014, [Reaktor Innovations Oy](http://reaktor.fi/)
+Copyright © 2011-2015, [Reaktor Innovations Oy](http://reaktor.com/)
 
 Licensed under the Apache License, Version 2.0. See [LICENSE](LICENSE).

@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2014, Reaktor Innovations Oy
+# Copyright 2012-2015, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -53,7 +53,7 @@ end
 
 def preferences_resourse(exec_action)
   apt_preference new_resource.repo_name do
-    package_name '*'
+    glob         '*'
     pin          "release a=#{new_resource.distribution}, o=Debian"
     pin_priority new_resource.pin_priority.to_s
     action       exec_action
