@@ -4,7 +4,7 @@ driver:
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: true
+  require_chef_omnibus: <%= ENV.fetch('TK_CHEF_VERSION', 'true') %>
 
 platforms:
 - name: debian-wheezy
@@ -13,7 +13,7 @@ platforms:
 suites:
 - name: default
   run_list:
-<% ENV.fetch('RECIPES', 'default').split(/[ ,]+/).each do |recipe| %>
+<% ENV.fetch('TK_RECIPES', 'default').split(/[ ,]+/).each do |recipe| %>
   - recipe[debian::<%= recipe %>]
 <% end %>
 - name: backports
