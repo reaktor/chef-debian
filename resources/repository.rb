@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2014, Reaktor Innovations Oy
+# Copyright 2012-2015, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,12 +19,12 @@
 # limitations under the License.
 #
 
-actions        :add, :remove
+actions :add, :remove
 default_action :add
 
-attribute :repo_name,    kind_of: String,                  name_attribute: true
-attribute :uri,          kind_of: String
+attribute :repo_name, kind_of: String, name_attribute: true
+attribute :uri, kind_of: String
 attribute :distribution, kind_of: String,                  name_attribute: true
-attribute :components,   kind_of: Array
-attribute :deb_src,      kind_of: [TrueClass, FalseClass]
+attribute :components, kind_of: Array
+attribute :deb_src, kind_of: [TrueClass, FalseClass]
 attribute :pin_priority,                                   default: nil

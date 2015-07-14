@@ -10,11 +10,11 @@ RSpec::Matchers.define :add_apt_source do |expected, d_file = nil|
   end
 
   failure_message do |actual|
-    %Q{expected #{actual} to add "#{expected}" to #{file}}
+    %(expected #{actual} to add "#{expected}" to #{file})
   end
 
   failure_message_when_negated do |actual|
-    %Q{expected #{actual} not to add "#{expected}" to #{file}}
+    %(expected #{actual} not to add "#{expected}" to #{file})
   end
 
   def escape_ignoring_spaces(s)

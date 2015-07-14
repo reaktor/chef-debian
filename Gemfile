@@ -6,7 +6,7 @@ gem 'chefspec', '~> 4.2'
 gem 'foodcritic', '~> 4.0'
 gem 'rake'
 gem 'rspec', '~> 3.0'
-gem 'rubocop', '~> 0.24.1'
+gem 'rubocop', '~> 0.32.1'
 
 group :development do
   gem 'guard-rspec', '~> 4.0'

@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2012-2014, Reaktor Innovations Oy
+# Copyright 2012-2015, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -42,14 +42,12 @@ class Chef
           node['debian']['backports_mirror']
         elsif node['platform_version'].to_i < 7
           pre_wheezy_backports_mirror(node)
-        else
-          nil
         end
       end
 
       def self.pre_wheezy_backports_mirror(node)
-        if node['debian']['mirror'] =~ /\/debian$/
-          node['debian']['mirror'].sub(/\/debian$/, '/debian-backports')
+        if node['debian']['mirror'] =~ %r{\/debian$}
+          node['debian']['mirror'].sub(%r{\/debian$}, '/debian-backports')
         else
           'http://backports.debian.org/debian-backports'
         end
