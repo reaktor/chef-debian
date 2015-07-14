@@ -3,7 +3,7 @@
 load test_helper
 
 @test "sources.list is configured" {
-    local mirror='http://http.debian.net/debian'
+    local mirror='http://httpredir.debian.org/debian'
     grep -qE "^deb\s+$(regexp_escape $mirror) $(codename) main contrib non-free$" /etc/apt/sources.list
 }
 

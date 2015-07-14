@@ -71,7 +71,7 @@ Attributes
 
 Attribute                      | Description                    | Default
 -------------------------------|--------------------------------|----------
-`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://http.debian.net/debian"`
+`node['debian']['mirror']`     | Default Debian mirror URI      | `"http://httpredir.debian.org/debian"`
 `node['debian']['backports_mirror']` | Mirror URI for backports repository | `node['debian']['mirror']` (on Squeeze derived from it)
 `node['debian']['security_mirror']` | Mirror URI for security repository | "http://security.debian.org/debian-security"
 `node['debian']['components']` | Default repository components  | `["main", "contrib", "non-free"]`
@@ -135,7 +135,7 @@ setting `node['debian']['<repo>']` attributes to true or false. By default
 a standard set is included. The other option is to add the wanted repositories
 (e.g. `recipe[debian::backports]`) directly to the run list.
 
-The default base URI (http.debian.net) should be fine for most cases as it
+The default base URI (httpredir.debian.org) should be fine for most cases as it
 redirects to a geographically closest mirror. You can also to set it explicitly
 for example in a role:
 

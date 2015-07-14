@@ -7,7 +7,7 @@ describe 'debian::backports' do
         debian_runner('6.0.5').converge('debian::backports')
       end
 
-      it { should add_backports_source('http://http.debian.net/debian-backports') }
+      it { should add_backports_source('http://httpredir.debian.org/debian-backports') }
     end
 
     context 'with specified default mirror' do
@@ -56,7 +56,7 @@ describe 'debian::backports' do
         debian_runner('7.0').converge('debian::backports')
       end
 
-      it { should add_backports_source('http://http.debian.net/debian') }
+      it { should add_backports_source('http://httpredir.debian.org/debian') }
     end
 
     context 'with specified default mirror' do
