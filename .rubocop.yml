@@ -1,27 +1,23 @@
-LineLength:
-  Max: 100
+AllCops:
+  Exclude:
+    - .kitchen/**/*
+    - metadata.rb
+    - vendor/**/*
 
-MethodLength:
-  Max: 12
-
-Encoding:
+# Disable ABCSize because it doesn't fit well with resources
+AbcSize:
   Enabled: false
-
 AsciiComments:
   Enabled: false
-
-TrailingComma:
+Encoding:
   Enabled: false
-
-SingleSpaceBeforeFirstArg:
+LineLength:
   Enabled: false
-
-NegatedIf:
+MethodLength:
   Enabled: false
-
 PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%q': '{}'
-    '%Q': '{}'
     '%w': '[]'
     '%W': '[]'
+TrailingComma:
+  Enabled: false

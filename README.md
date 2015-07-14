@@ -28,7 +28,7 @@ Requirements
 ------------
 
 Intended for use in Debian, but could be modified for other Apt based platforms.
-Tested on Debian 6.0 Squeeze and Debian 7 Wheezy.
+Tested on Debian 8 (jessie), 7 (wheezy), and 6.0 (squeeze).
 
 Notifications of the `debian_repository` resource require Chef 11 or newer.
 Otherwise the cookbook should also work with Chef 10.

@@ -37,25 +37,25 @@ action :add do
 end
 
 action :remove do
-  repository_resource  :remove
+  repository_resource :remove
   preferences_resourse :remove
 end
 
 def repository_resource(exec_action)
   apt_repository new_resource.repo_name do
-    uri          new_resource.uri
+    uri new_resource.uri
     distribution new_resource.distribution
-    components   new_resource.components
-    deb_src      new_resource.deb_src
-    action       exec_action
+    components new_resource.components
+    deb_src new_resource.deb_src
+    action exec_action
   end
 end
 
 def preferences_resourse(exec_action)
   apt_preference new_resource.repo_name do
-    glob         '*'
-    pin          "release a=#{new_resource.distribution}, o=Debian"
+    glob '*'
+    pin "release a=#{new_resource.distribution}, o=Debian"
     pin_priority new_resource.pin_priority.to_s
-    action       exec_action
+    action exec_action
   end
 end

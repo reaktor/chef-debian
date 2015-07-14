@@ -1,20 +1,20 @@
 ---
 driver:
   name: docker
-  socket: <%= ENV.fetch('DOCKER_HOST', 'unix:///var/run/docker.sock') %>
 
 provisioner:
   name: chef_zero
-  require_chef_omnibus: true
+  require_chef_omnibus: <%= ENV.fetch('TK_CHEF_VERSION', 'true') %>
 
 platforms:
+- name: debian-jessie
 - name: debian-wheezy
 - name: debian-squeeze
 
 suites:
 - name: default
   run_list:
-<% ENV.fetch('RECIPES', 'default').split(/[ ,]+/).each do |recipe| %>
+<% ENV.fetch('TK_RECIPES', 'default').split(/[ ,]+/).each do |recipe| %>
   - recipe[debian::<%= recipe %>]
 <% end %>
 - name: backports

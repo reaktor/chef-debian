@@ -2,7 +2,6 @@ require 'spec_helper'
 require 'helpers'
 
 describe Chef::Debian::Helpers do
-
   describe '.codename' do
     context 'with lsb attributes' do
       let(:lsb_codename) { 'banana' }
@@ -63,7 +62,6 @@ describe Chef::Debian::Helpers do
     context 'without specified security mirror' do
       it { should eq('http://security.debian.org/debian-security') }
     end
-
   end
 
   describe '.backports_mirror' do
@@ -110,5 +108,4 @@ describe Chef::Debian::Helpers do
       end
     end
   end
-
 end

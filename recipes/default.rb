@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2011-2014, Reaktor Innovations Oy
+# Copyright 2011-2015, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ unless node['platform'] == 'debian'
 end
 
 template '/etc/apt/sources.list' do
-  owner    'root'
-  group    'root'
-  mode     00644
+  owner 'root'
+  group 'root'
+  mode 00644
   notifies :run, 'execute[apt-get update]', :immediately
 end
 
