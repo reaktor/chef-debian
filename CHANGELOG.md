@@ -12,6 +12,10 @@ Improvements:
 
 - Fix compatibility with apt cookbook 2.7.0 and newer using `glob` for `apt_preference`. Requires apt cookbook 1.9.0 or later. ([GH-16][])
 
+Bug fixes:
+
+- `backports_sloppy` should always include the `backports` recipe. ([GH-19][])
+
 # 1.7.2 / 2014-08-22
 
 Improvements:
@@ -135,3 +139,4 @@ Features:
 [GH-16]: https://github.com/reaktor/chef-debian/issues/16 "Issue 16"
 [GH-17]: https://github.com/reaktor/chef-debian/issues/17 "Issue 17"
 [GH-18]: https://github.com/reaktor/chef-debian/issues/18 "Issue 18"
+[GH-19]: https://github.com/reaktor/chef-debian/issues/19 "Issue 19"
