@@ -1,5 +1,9 @@
 # 1.7.3 / _Not released yet_
 
+Breaking changes:
+
+- Default mirror changed to "[httpredir.debian.org](http://httpredir.debian.org/)". This is the official successor of "http.debian.net" and should just work without changes. Thus no major version bump. ([GH-17][])
+
 Improvements:
 
 - Fix compatibility with apt cookbook 2.7.0 and newer using `glob` for `apt_preference`. Requires apt cookbook 1.9.0 or later. ([GH-16][])
@@ -125,3 +129,4 @@ Features:
 [GH-14]: https://github.com/reaktor/chef-debian/issues/14 "Issue 14"
 [GH-15]: https://github.com/reaktor/chef-debian/issues/15 "Issue 15"
 [GH-16]: https://github.com/reaktor/chef-debian/issues/16 "Issue 16"
+[GH-17]: https://github.com/reaktor/chef-debian/issues/17 "Issue 17"
