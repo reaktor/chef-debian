@@ -2,7 +2,7 @@
 
 Improvements:
 
-- Fix compatibility with apt cookbook 2.7.0 and newer ([GH-16][]) using `glob` for `apt_preference`. Requires apt cookbook 1.9.0 or later.
+- Fix compatibility with apt cookbook 2.7.0 and newer using `glob` for `apt_preference`. Requires apt cookbook 1.9.0 or later. ([GH-16][])
 
 # 1.7.2 / 2014-08-22
 
