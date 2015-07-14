@@ -4,7 +4,7 @@
 #
 # Author:: Teemu Matilainen <teemu.matilainen@reaktor.fi>
 #
-# Copyright 2013-2014, Reaktor Innovations Oy
+# Copyright 2013-2015, Reaktor Innovations Oy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,7 +19,7 @@
 # limitations under the License.
 #
 
-if node['platform_version'].to_i >= 7
+if node['platform_version'].to_i >= 8
   Chef::Log.warn "#{node['debian']['codename']}-backports-sloppy does not exist yet"
   Chef::Log.warn "Please file an issue if I'm wrong: https://github.com/reaktor/chef-debian/issues"
   Chef::Log.info 'Including `debian::backports` recipe instead'

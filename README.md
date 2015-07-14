@@ -49,8 +49,8 @@ The other recipes configure apt to use the corresponding Debian repository:
   * `backports` - Sets up apt source for [Debian Backports]
     (http://wiki.debian.org/Backports) repository.
   * `backports_sloppy` - Sets up apt source for [Debian Backports/sloppy]
-    (http://backports.debian.org/Instructions/#index4h2) repository. Only
-    supported on Squeeze. Also includes the `backports` recipe.
+    (http://backports.debian.org/Instructions/#index4h2) repository. Currently
+    supported upto wheezy. Also includes the `backports` recipe.
   * `security` - Sets up apt source for [Debian Security Updates]
     (http://www.debian.org/security/) repository.
   * `sid` - Alias for `unstable` recipe.
