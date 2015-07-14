@@ -8,6 +8,9 @@ describe 'debian::backports_sloppy' do
       end.converge('debian::backports_sloppy')
     end
 
+    it 'includes debian::backports recipe' do
+      expect(chef_run).to include_recipe('debian::backports')
+    end
     it 'configures debian-backports-sloppy repository' do
       expect(chef_run).to add_apt_source(
         'deb http://example.com/debian-backports squeeze-backports-sloppy main contrib non-free',
@@ -20,6 +23,9 @@ describe 'debian::backports_sloppy' do
       debian_runner('7.0').converge('debian::backports_sloppy')
     end
 
+    it 'includes debian::backports recipe' do
+      expect(chef_run).to include_recipe('debian::backports')
+    end
     it 'configures debian-backports-sloppy repository' do
       expect(chef_run).to add_apt_source(
         'deb http://httpredir.debian.org/debian wheezy-backports-sloppy main contrib non-free',
