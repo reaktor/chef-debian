@@ -9,7 +9,7 @@ describe 'debian::default' do
     end
 
     it { should include_recipe('apt') }
-    it { should add_apt_source('deb http://httpredir.debian.org/debian cheese main contrib non-free') }
+    it { should add_apt_source('deb "http://httpredir.debian.org/debian" cheese main contrib non-free') }
     it { should include_recipe('debian::security') }
     it { should_not include_recipe('debian::testing') }
 
@@ -23,7 +23,7 @@ describe 'debian::default' do
         end
 
         it do
-          should add_apt_source('deb http://httpredir.debian.org/debian wheezy main contrib non-free')
+          should add_apt_source('deb "http://httpredir.debian.org/debian" wheezy main contrib non-free')
         end
       end
 
@@ -36,7 +36,7 @@ describe 'debian::default' do
         end
 
         it do
-          should add_apt_source('deb http://httpredir.debian.org/debian wheezy main contrib non-free')
+          should add_apt_source('deb "http://httpredir.debian.org/debian" wheezy main contrib non-free')
         end
       end
     end
@@ -52,8 +52,8 @@ describe 'debian::default' do
         end.converge('debian::default')
       end
 
-      it { should add_apt_source('deb http://example.com/debian-mirror cheese resistor diode') }
-      it { should add_apt_source('deb-src http://example.com/debian-mirror cheese resistor diode') }
+      it { should add_apt_source('deb "http://example.com/debian-mirror" cheese resistor diode') }
+      it { should add_apt_source('deb-src "http://example.com/debian-mirror" cheese resistor diode') }
       it { should include_recipe('debian::backports') }
     end
 
