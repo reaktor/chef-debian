@@ -28,7 +28,7 @@ RSpec::Matchers.define :add_backports_source do |expected_mirror|
   end
 
   define_method :src_line do |actual|
-    "deb #{expected_mirror} #{codename(actual.node)}-backports main contrib non-free"
+    "deb \"#{expected_mirror}\" #{codename(actual.node)}-backports main contrib non-free"
   end
 
   def codename(node)
