@@ -13,7 +13,7 @@ describe 'debian::backports_sloppy' do
     end
     it 'configures debian-backports-sloppy repository' do
       expect(chef_run).to add_apt_source(
-        'deb http://example.com/debian-backports squeeze-backports-sloppy main contrib non-free',
+        'deb "http://example.com/debian-backports" squeeze-backports-sloppy main contrib non-free',
         'backports-sloppy.list')
     end
   end
@@ -28,7 +28,7 @@ describe 'debian::backports_sloppy' do
     end
     it 'configures debian-backports-sloppy repository' do
       expect(chef_run).to add_apt_source(
-        'deb http://httpredir.debian.org/debian wheezy-backports-sloppy main contrib non-free',
+        'deb "http://httpredir.debian.org/debian" wheezy-backports-sloppy main contrib non-free',
         'backports-sloppy.list')
     end
   end

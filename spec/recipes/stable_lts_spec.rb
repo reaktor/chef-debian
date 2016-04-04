@@ -8,7 +8,7 @@ describe 'debian::stable_lts' do
 
     it 'configures the LTS repository' do
       expect(chef_run).to add_apt_source(
-        'deb http://httpredir.debian.org/debian squeeze-lts main contrib non-free',
+        'deb "http://httpredir.debian.org/debian" squeeze-lts main contrib non-free',
         'stable-lts.list')
     end
   end
