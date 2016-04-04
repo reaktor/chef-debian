@@ -32,6 +32,7 @@ class Chef
         case version
         when /^6\./ then 'squeeze'
         when /^7\./ then 'wheezy'
+        when /^8\./ then 'jessie'
         else 'stable'
         end
       end
