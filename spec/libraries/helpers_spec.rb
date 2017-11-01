@@ -29,7 +29,7 @@ describe Chef::Debian::Helpers do
       '6.0.7'   => 'squeeze',
       '7.0'     => 'wheezy',
       '7.1'     => 'wheezy',
-      '8.0'     => 'stable',
+      '8.0'     => 'jessie',
       'unknown' => 'stable',
     }
     versions.each do |version, codename|

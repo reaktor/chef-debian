@@ -19,7 +19,9 @@
 # limitations under the License.
 #
 
+codename = Chef::Debian::Helpers.codename(node)
+
 debian_repository 'backports' do
   uri Chef::Debian::Helpers.backports_mirror(node)
-  distribution "#{node['debian']['codename']}-backports"
+  distribution "#{codename}-backports"
 end
